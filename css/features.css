@@ -1,0 +1,29 @@
+p.topped{
+  margin-top: -1.2em;
+}
+
+.slide table {
+  margin-left: 0;
+  width: auto;
+}
+
+.slide table.simple-table td {
+  padding: 5px 12px;
+  border: 1px solid #ccc;
+  background: none;
+}
+
+.slide table.simple-table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+.slide table.square {
+  margin-left: 0;
+  width: auto;
+}
+
+.slide table.square td {
+  padding: 2px 19px;
+  border: 1px solid #ddd;
+  background: white;
+}

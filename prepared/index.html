@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns="http://www.w3.org/1999/html">
+  <head>
+    <title>Базовые понятия. Переменные и числа</title>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="i/favicon.ico" type="image/x-icon">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="node_modules/shower-ribbon/styles/screen-4x3.css">
+    <link rel="stylesheet" href="css/prism.css">
+    <link rel="stylesheet" href="css/prism-fix.css">
+    <link rel="stylesheet" href="css/netology.css">
+    <link rel="stylesheet" href="css/fake-browser.css">
+    <link rel="stylesheet" href="css/features.css">
+
+    <script src="https://use.fontawesome.com/70378a66b8.js"></script>
+  </head>
+  <body class="shower">
+    <header class="caption">
+      <h1>Базовые понятия. Переменные и числа</h1>
+      <p>Камышев Игорь, Tech Lead</p>
+    </header>
+
+    <section class="slide" id="cover">
+      <h2>Базовые понятия. Переменные и числа</h2>
+      <p>
+        <img src="i/kamyshev.jpg" alt="" class="avatar">
+        Камышев Игорь <span class="position">Tech Lead</span>
+      </p>
+    </section>
+
+    <section class="slide author" id="author">
+      <img src="i/kamyshev.jpg" alt="">
+      <h1>Камышев Игорь</h1>
+      <p class="position">Tech Lead Breadhead</p>
+      <ul class="contacts">
+        <li><a href="mailto:igor@kamyshev.me"><i class="fa fa-envelope-o" aria-hidden="true"></i>igor@kamyshev.me</a></li>
+        <li><a href="https://www.facebook.com/profile.php?id=100012189521895"><i class="fa fa-facebook" aria-hidden="true"></i>https://facebook.com</a></li>
+      </ul>
+    </section>
+
+    <section class="slide" id="roadmap">
+      <h2>План занятия</h2>
+      <ol>
+        <li><a href="#welcome">Добро пожаловать</a></li>
+        <li><a href="#plan">План курса</a></li>
+        <li><a href="#server-how-to">Как работает веб (клиент—сервер)</a></li>
+        <li><a href="#js-intro">Введение в JavaScript</a></li>
+        <li><a href="#developers">Программисты</a></li>
+        <li><a href="#vars">Переменные (let)</a></li>
+        <li><a href="#numbers">Целые числа и числа с плавающей точкой + операторы</a></li>
+        <li><a href="#expressions">Операция / выражение</a></li>
+        <li><a href="#recent">Чему мы научились</a></li>
+      </ol>
+    </section>
+
+    <section class="slide" id="welcome">
+      <h2>Приветствуем!</h2>
+      <p>Приветствуем вас на базовом курсе по основам программирования на примере популярного языка <b>JavaScript</b>.</p>
+      <p>На этом курсе мы с вами научимся:</p>
+      <ul>
+        <li>работать с основными понятиями</li>
+        <li>применять базовые навыки</li>
+        <li>мыслить как инженер</li>
+        <li>искать ошибки в нашем коде</li>
+        <li>писать красивый и чистый код</li>
+      </ul>
+      <p>Закрепить полученные знания вам поможет <b>домашняя работа</b> после каждой лекции. В конце курса вы напишете свою первую собственную игру!</p>
+    </section>
+
+    <section class="slide" id="plan">
+      <h2>План нашего курса</h2>
+      <ul>
+        <li>Блок 1: Типы данных</li>
+        <li>Блок 2: Структуры данных и циклы</li>
+        <li>Блок 3: Функции</li>
+        <li>Дипломная работа (своя собственная игра)</li>
+      </ul>
+      <p>Главный <b>message</b> нашего курса:</p>
+      <p><b>JavaScript — это увлекательно!</b></p>
+    </section>
+
+    <section class="slide">
+      <h2>Ваши мысли</h2>
+      <ol>
+        <li>Как вы думаете, как работает сайт?</li>
+        <li>Видем ли мы всю работу сайта?</li>
+        <li>Что происходит после того, когда мы вводим адрес сайта?</li>
+      </ol>
+      <figure style="width: 75%;">
+        <img src="https://i.imgur.com/GBUlXhH.png" alt="">
+      </figure>
+    </section>
+
+    <section class="slide" id="server-how-to">
+      <h2>Как работает веб (клиент—сервер)</h2>
+      <p><b>Клиент</b> посылает запросы, а сервер присылает <b>ответы</b>.</p>
+      <p><ins>HTTP ответы</ins> сервера содержат код ответа</p>
+      <img src="pic/client-server.png">
+    </section>
+
+    <section class="slide" id="js-intro">
+      <h2>Основы программирования</h2>
+      <img src="pic/netology-prof.jpg">
+      <p>Все сайты делятся на фронтэнд и бекэнд.</p>
+    </section>
+
+    <section class="slide">
+      <h2>Основы программирования</h2>
+      <p><b>Фронтэнд</b> — это фасад сайта, то, с чем взаимодействует посетитель: весь текст, картинки, кнопки и так далее. На нашем <a href="https://netology.ru/programs/front-end#/presentation">курсе по фронтэнду</a> мы изучаем HTML, CSS и Javascript. Пройдя его можно стать полноценным junior-разработчиком в короткие сроки и получить 5 готовых проектов в резюме.</p>
+      <p><b>Бекэнд </b> — это задний двор: устройство веб-сервера, которое отвечает за то, чтобы код работал правильно, письма отправлялись, статьи отображались и так далее. На нашем <a href="https://netology.ru/programs/php-sql#/presentation">курсе по бекэнду</a> мы изучаем PHP и базы данных.</p>
+      <p>
+        <b>ВАЖНО</b>
+        <br>Наш с вами курс - это <b>основы программирования</b>. Независимо от того профессионального пути который вы выберете, базовые знания и основы понадобятся как при работе с фронтэндом, так и с бекэндом.
+      </p>
+    </section>
+
+    <section class="slide">
+      <h2>Программы</h2>
+      <p style="font-size: 20px;">На сервере и на клиенте работают программы/скрипты.</p>
+      <p style="font-size: 20px;"><ins>Программа</ins> — код и данные, предназначенных получения определённого результата. Программы обычно большие и сложные, их нужно устанавливать.</p>
+      <p style="font-size: 20px;">Помимо программ существуют <i>скрипты</i>. Скрипты обычно выполняют набор простых действий.</p>
+    </section>
+
+    <section class="slide">
+      <h2>Программы</h2>
+      <p style="font-size: 20px;">На картинке изображена программа редактора кода:</p>
+      <img src="pic/vscode.png">
+    </section>
+
+    <section class="slide">
+      <h2>С какими программами вы работаете?</h2>
+      <p>Мы все знакомы с <i>MS Word</i>, <i>PowerPoint</i>, <i>Excel</i>, <i>Outlook Express</i>, а также браузерами для работы в интернете - <i>Opera</i>, <i>Google Chrome</i>, <i>Mozilla Firefox</i> и др.</p>
+      <p>Ваши варианты?</p>
+    </section>
+
+    <section class="slide">
+      <h2>Что происходит когда мы переходим на сайт?</h2>
+      <img src="pic/google-link.png">
+      <ol>
+        <li>В строке браузера пишем адрес сайта (напр. <a href="https://www.google.com">www.google.com</a>)</li>
+        <li>Запрос отправляется на сервер (<i>фронтэнд</i>)</li>
+        <li>Скрипт обрабатывает запрос на сервере (<i>бекэнд</i>)</li>
+        <li>Сервер возвращает ответ (<i>бекэнд</i>)</li>
+        <li>Браузер получает веб-страницу с кодом html и javascript и интерпретирует ее (<i>фронтэнд</i>)</li>
+        <li>После интерпретации мы видим веб страницу со всеми картинками, текстами и другими элементами</li>
+      </ol>
+    </section>
+
+    <section class="slide">
+      <h2>Язык программирования</h2>
+      <p><b>Просто</b>: Это то, как мы можем общаться с компьютером.</p>
+      <p><b>Сложнее</b>: Это набор синтаксических правил, соблюдая которые получится написать программу.</p>
+      <p>Языки:</p>
+      <ul>
+        <li>C++</li>
+        <li>C#</li>
+        <li>Java</li>
+        <li>Python</li>
+        <li>Javascript</li>
+        <li>PHP</li>
+      </ul>
+    </section>
+
+    <section class="slide">
+      <h2>Программист</h2>
+      <p>Программист — это специалист, который занимается разработкой компьютерных программ.</p>
+      <ul>
+        <li><b>Системные программисты</b> разрабатывают операционные системы, работают с сетями.</li>
+        <li><b>Web-программисты</b> пишут программную составляющую сайтов, создают динамические веб-страницы, web-интерфейсы для работы с базами данных.</li>
+        <li><b>Прикладные программисты</b> - это специалисты, занимающиеся разработкой и внедрением программного обеспечения.</li>
+      </ul>
+    </section>
+
+    <section class="slide">
+      <h2>Знакомимся с JavaScript</h2>
+      <p><i>Javascript</i> - скриптовый язык который выполняется интерпретатором, чаще всего браузером.</p>
+      <p>JavaScript делает web-странички «живыми». Программы на этом языке называются скриптами.</p>
+      <p>Для написания кода будем использовать <a href="http://repl.it/">Repl.it</a></p>
+    </section>
+
+    <section class="slide">
+      <h2>Как работать с repl.it</h2>
+      <p>Repl - это онлайн платформа где можно пробовать программировать. Как начать писать код?</p>
+      <img src="pic/replit.png">
+    </section>
+
+    <section class="slide">
+      <h2>Как работать с repl.it</h2>
+      <ol>
+        <li>Переходим на <a href="https://repl.it/">repl.it</a></li>
+        <li>Регистрируемся, нажав <i>Sign up</i></li>
+        <li>Пропускаем туториал нажав <i>Start coding now</i></li>
+        <li>Выбираем язык - Javascript</li>
+      </ol>
+    </section>
+
+    <section class="slide">
+      <h2>Как работать с repl.it</h2>
+      <p>Если вы видите</p>
+      <img src="pic/replit-inside.png">
+      <p>то все сделали правильно!</p>
+      <p>Можно писать свой первый код на <b>Javascript</b>!</p>
+    </section>
+
+    <section class="slide">
+      <h2>Поработаем в repl.it</h2>
+      <p>В левой светлой половине мы будем писать код, а в правой будем получать результат.</p>
+      <p>Напишем пример и нажмем кнопку <b>Run</b>!</p>
+      <pre class="language-css">
+        <code>
+          5 + 5;
+          10 * 10 + 15;
+          (100 - 8) / 2;
+        </code>
+      </pre>
+      <p><b>ВАЖНО</b></p>
+      <p><b>Код выполняет сверху вниз! Сначала выполняется первая строка, потом вторая и так далее до конца.</b></p>
+    </section>
+
+    <section class="slide">
+      <h2>Усложняем</h2>
+      <p style="font-size: 20px;">Решим пару задач</p>
+      
+      <p style="font-size: 20px;"><b>Задача 1</b>: Расстояние между пунктами A и B равно 100км. Человек движется с постоянной скоростью 5км/ч из пункта A. За сколько времени наш герой достигнет пункта B?</p>
+      <p style="font-size: 20px;"><b>Задача 2</b>: Расстояние между пунктами A и C равно 140км. Человек движется с постоянной скоростью 5км/ч. За сколько времени наш герой достигнет пункта C?</p>
+      
+      <p style="font-size: 20px;">Решение 1:</p>
+      <pre class="language-css" style="font-size: 20px;">
+        <code>
+          100 / 5;
+        </code>
+      </pre>
+
+      <p style="font-size: 20px;">Решение 2:</p>
+      <pre class="language-css" style="font-size: 20px;">
+        <code>
+          140 / 5;
+        </code>
+      </pre>
+      
+      <p style="font-size: 20px;">Скорость одинаковая в обеих задачах. Дважды писать лень и поэтому мы можем воспользоваться <i>переменной</i>!</p>
+    </section>
+
+    <section class="slide" id="vars">
+      <h2>Переменные (<code>let</code>)</h2>
+      <p>
+        Переменные используются для хранения информации.
+        <br>В <i>javascript</i> для создания переменной используется слово <ins>let</ins>
+      </p>
+      
+      <pre class="language-javascript line-numbers">
+        <code>
+          let number;
+        </code>
+      </pre>
+
+      <p>Чтобы положить информацию в переменную</p>      
+      <pre class="language-javascript line-numbers">
+        <code>
+          number = 10;
+          // number равно 10
+        </code>
+      </pre>
+
+      <p>Значение можно изменять</p>      
+      <pre class="language-javascript line-numbers">
+        <code>
+          number = 20;
+          // а теперь number равно уже 20 !!!
+        </code>
+      </pre>
+    </section>
+
+    <section class="slide">
+      <h2>Не объявляйте два раза переменную с одинаковым именем</h2>
+      <p>Мы можем менять значение у переменной, но объявлять одну и ту же два раза мы не можем, будет ошибка:</p>
+      
+      <pre class="language-javascript line-numbers">
+        <code>
+          let number;
+          number = 5;
+          
+          let number; // ошибка!
+        </code>
+      </pre>
+    </section>
+
+    <section class="slide">
+      <h2>Создание переменной и присваивание значений можно объединить</h2>
+
+      <p>Вместо:</p>
+      <pre class="language-javascript line-numbers">
+        <code>
+          let number;
+          number = 5;
+        </code>
+      </pre>
+      
+      <p>Можно написать короче:</p>
+      <pre class="language-javascript line-numbers">
+        <code>
+          let number = 5;
+        </code>
+      </pre>
+    </section>
+
+    <section class="slide">
+      <h2>Что мы можем хранить в переменной?</h2>
+
+      <p>
+        Зависит от того, с какой информацией вы работаете.
+        <br>Мы рассмотрим работу с некоторыми вариантами:
+      </p>
+      <ul>
+        <li>Целые числа ( <i>10</i>, <i>5</i>, <i>16</i> )</li>
+        <li>Числа с плавающей точкой ( <i>10.12</i>, <i>5.2</i>, <i>1.4</i> )</li>
+        <li>Строки ( <i>“Маша”</i>, <i>“Фрукты”</i>, <i>“слова”</i> )</li>
+      </ul>
+    </section>
+
+    <section class="slide" id="numbers">
+      <h2>Целые числа и числа с плавающей точкой + операторы</h2>
+
+      <p>В JavaScript можно записывать как целые, так и дробные числа. Числа с плавающей точкой имеют целую и дробную часть.</p>
+      <pre class="language-javascript line-numbers">
+          <code>
+            let number1 = 10;
+            let number2 = 10.25;
+          </code>
+        </pre>
+    </section>
+
+    <section class="slide" id="expressions">
+      <h2>Рассмотрим примеры работы основных операторов</h2>
+
+      <ol>
+        <li>Операции присваивания</li>
+        <li>Арифметические операторы</li>
+      </ol>
+      <pre class="language-javascript line-numbers" style="font-size: 22px;">
+          <code>
+            let operator = 0;
+            let operator == 'Равенство';
+            
+            let a = 10, b = 5;
+            console.log(a + b); // 15
+            console.log(a - b); // 5
+            console.log(a * b); // 50
+            console.log(a / b); // 2
+            
+            // совмещаем:
+            let c = a + b;
+          </code>
+        </pre>
+    </section>
+
+    <section class="slide">
+      <h2>Стоп! Что за <code>console.log()</code>?</h2>
+      
+      <p>С помощью <ins>console.log()</ins> можно информацию на печать.</p>
+      <p>Например:</p>
+      <img src="pic/replit-consolelog.png">
+      <p>Записав в левой стороне код на javascript, в правой стороне мы видим консоль с результатом вычилений.</p>
+    </section>
+
+    <section class="slide">
+      <h2>А как напечатать текст?</h2>
+      <p>В JavaScript текстовые данные называются строками.</p>
+      <pre class="line-numbers">
+        <code class="lang-js">
+          let string = "Это строка";
+
+          let anotherString = 'Другая строка';
+            
+          let name = "Alex";
+        </code>
+      </pre>
+      <p>Кавычки можно использовать как двойные, так и одинарные.</p>
+      <pre>
+        <code class="lang-js">
+          console.log(name); // Alex
+        </code>
+      </pre>
+    </section>
+
+    <section class="slide">
+      <h2>А как вывести текст со значением переменной?</h2>
+      <p>Мы можем подклеить значение переменной в конец строки с помощью оператора <code>+</code>:</p>
+      <pre class="line-numbers">
+        <code class="lang-js">
+          let appleQuantity = 5;
+
+          let text = "Количество яблок: ";
+            
+          console.log(text + appleQuantity);
+        </code>
+      </pre>
+      <p>или даже без переменной <code>text</code>:</p>
+      <pre class="line-numbers">
+        <code class="lang-js">
+          let appleQuantity = 5;
+
+          console.log("Количество яблок: " + appleQuantity);
+        </code>
+      </pre>
+    </section>
+    
+    <section class="slide">
+      <h2>Теперь мы можем красиво оформить нашу задачку</h2>
+      <p>Расстояние между пунктами <b>A</b> и <b>B</b> равно 100км. Человек движется с постоянной скоростью 5км/ч из пункта <b>A</b>. За сколько времени наш герой достигнет пункта <b>B</b>?</p>
+      <pre class="language-javascript line-numbers" style="font-size: 22px;">
+        <code>
+          let distance = 100;
+          let speed = 5;
+          let time = distance / speed;
+          
+          console.log(time); // 20
+        </code>
+      </pre>
+      <p>С переменными наш код стал читаться лучше!</p>
+    </section>
+    
+    <section class="slide" id="recent">
+      <h2>Чему мы научились?</h2>
+      <ol>
+        <li>Разобрали функционирование сайтов и как работает веб.</li>
+        <li>Что такое фронтенд и бэкенд</li>
+        <li>Познакомились с javascript</li>
+        <li>Рассмотрели базовые операторы</li>
+        <li>Поработали с разными типами данных</li>
+      </ol>
+      <h2>Радуемся!</h2>
+    </section>
+
+    <section class="slide">
+      <h2>Домашнее задание</h2>
+      <p>Давайте посмотрим ваше <a href="https://github.com/netology-code/pb-homeworks/tree/master/1.1_variables">домашнее задание</a>.</p>
+      <ul>
+        <li>Вопросы по домашней работе задаем в группе Facebook!</li>
+        <li>Задачи можно сдавать по частям.</li>
+        <li>Зачет по домашней работе проставляется после того, как приняты все <b>3 задачи</b>.</li>
+      </ul>
+    </section>
+    
+    <section class="slide">
+      <h2>Что почитать</h2>
+      <ul>
+        <li>
+          <a href="https://developer.mozilla.org/ru/docs/Learn/How_the_Internet_works">Как работает интернет</a>
+        </li>
+        <li>
+          <a href="https://developer.mozilla.org/ru/docs/Web/JavaScript/Guide/Expressions_and_Operators#%D0%9E%D0%BF%D0%B5%D1%80%D0%B0%D1%82%D0%BE%D1%80%D1%8B_%D0%BF%D1%80%D0%B8%D1%81%D0%B2%D0%B0%D0%B8%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F">Выражения и операторы</a>
+        </li>
+        <li>
+          <a href="https://learn.javascript.ru/intro">Введение в javascript</a>
+        </li>
+      </ul>
+    </section>
+
+    <section class="slide">
+      <h2>А посмотреть?</h2>
+      <ul>
+        <li>
+          <a href="https://www.youtube.com/watch?v=aGTjRU7Dp20&list=PLo6puixMwuSNxJCgadaaavKqq4-ocKPrR">Еще одна лекция о числах в javascript</a>
+        </li>
+        <li>
+          <a href="https://youtu.be/H6G63NKRSi8">Как работает javascript</a>
+        </li>
+        <li>
+          <a href="https://www.youtube.com/watch?v=fXi49EkrMPI">https://www.youtube.com/watch?v=fXi49EkrMPI</a>
+        </li>
+      </ul>
+    </section>
+
+    <section class="slide last">
+      <p class="thanx">Спасибо за внимание! Время задавать вопросы</p>
+      <address>Игорь Камышев</address>
+      <ul class="contacts">
+        <li><a href="mailto:igor@kamyshev.me"><i class="fa fa-envelope-o" aria-hidden="true"></i>igor@kamyshev.me</a></li>
+        <li><a href="https://www.facebook.com/profile.php?id=100012189521895"><i class="fa fa-facebook" aria-hidden="true"></i>https://facebook.com</a></li>
+      </ul>
+    </section>
+
+    <div class="progress"></div>
+    <script src="shower/shower.min.js"></script>
+    <script src="js/prism.js?v=2"></script>
+  </body>
+</html>

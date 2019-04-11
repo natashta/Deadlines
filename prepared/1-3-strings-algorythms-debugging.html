@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns="http://www.w3.org/1999/html">
+  <head>
+    <title>Строки. Алгоритмы. Как отлаживать код</title>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="i/favicon.ico" type="image/x-icon">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="node_modules/shower-ribbon/styles/screen-4x3.css">
+    <link rel="stylesheet" href="css/prism.css">
+    <link rel="stylesheet" href="css/prism-fix.css">
+    <link rel="stylesheet" href="css/netology.css">
+    <link rel="stylesheet" href="css/fake-browser.css">
+    <link rel="stylesheet" href="css/features.css">
+
+    <script src="https://use.fontawesome.com/70378a66b8.js"></script>
+  </head>
+  <body class="shower">
+    <header class="caption">
+      <h1>Строки. Алгоритмы. Как отлаживать код</h1>
+      <p>Николай Лопин, MyTaxi</p>
+    </header>
+
+    <section class="slide" id="cover">
+      <h2>Строки. Алгоритмы. Как отлаживать код</h2>
+      <p>
+        <img src="i/nlopin.png" alt="" class="avatar">
+        Николай Лопин <span class="position">MyTaxi</span>
+      </p>
+    </section>
+
+    <section class="slide author" id="author">
+      <img src="i/nlopin.png" alt="">
+      <h1>Николай Лопин</h1>
+      <p class="position">Senior JavaScript Developer в MyTaxi</p>
+      <ul class="contacts">
+        <li><a href="mailto:lopinopulos@gmail.com"><i class="fa fa-envelope-o" aria-hidden="true"></i>lopinopulos@gmail.com</a></li>
+        <li><a href="https://www.facebook.com/nikolay.lopin"><i class="fa fa-facebook" aria-hidden="true"></i>nikolay.lopin</a></li>
+        <li><i class="fa fa-telegram" aria-hidden="true"></i>@nlopin</li>
+      </ul>
+    </section>
+
+    <section class="slide" id="roadmap">
+      <h2>План занятия</h2>
+      <ol>
+        <li><a href="#repeating">Повторение - мать учения</a></li>
+        <li><a href="#strings">Что такое строки для компьютера? Кодировки</a></li>
+        <li><a href="#chars">Создание строк и спецсимволы</a></li>
+        <li><a href="#methods">Методы для работы со строками</a></li>
+        <li><a href="#algorythms">Алгоритмы</a></li>
+        <li><a href="#debugging">Работа с ошибками. Отладка</a></li>
+      </ol>
+    </section>
+
+    <section class="slide chapter" id="repeating">
+      <h2>Повторение - мать учения</h2>
+    </section>
+
+    <section class="slide">
+      <h2>Вспомним про ветвления</h2>
+      <p>Что мы получим в результате исполнения такого кода?</p>
+      <pre>
+        <code class="language-javascript line-numbers">
+          let hour = 19;
+          let minute = 30;
+
+          if (18 < 0 || (hour === 19 && minute === 30)) {
+            console.log('Время строк в JS!');
+          } else {
+            console.log('It\'s party time!');
+          }
+
+        </code>
+      </pre>
+    </section>
+
+    <section class="slide">
+      <h2>Что мы увидим в результате?</h2>
+      <p>Мы увидим на экране окно с сообщением <code>Время строк в JS!</code>, потому что условие верно. Оно состоит из двух частей:</p>
+
+      <ul>
+        <li><code>18 < 0 → false</code></li>
+        <li><code>(hour === 19 && minute === 30)</code> → <code>true</code>, потому что используется логическое <code>И</code> и оба сравнения истинны</li>
+      </ul>
+      <p>Две части соединены оператором ИЛИ <code>||</code> и нам достаточно, чтобы хотя бы одна из частей выражения была верна.</p>
+    </section>
+
+    <section class="slide">
+      <h2>Бонус: Switch-case</h2>
+      <p style="font-size: 20px;">Когда у нас возникает необходимость выполнять много разных блоков кода в зависимости от значения одной и той же переменной - вместо большой цепочки <code>else-if</code> удобнее использовать конструкцию <code>switch-case</code>. Она позволяет повысить читаемость и поддерживаемость кода.</p>
+      <p style="font-size: 20px;">Давайте сначала посмотрим как это будет выглядеть с уже знакомым нам подходом:</p>
+      
+      <pre style="font-size: 20px;">
+        <code class="language-javascript line-numbers">
+          let age = 18;
+
+          if (age === 0) {
+            console.log('Вы еще не родились');
+          } else if (age === 7) {
+            console.log('Первый класс!');
+          } else if (age === 18) {
+            console.log('Доступ разрешен');
+          } else {
+            console.log('Доступ запрещен');
+          }
+        </code>
+      </pre>
+    </section>
+
+    <section class="slide">
+      <h2>Другой подход</h2>
+      <p>А теперь тоже самое, но с другим синтаксисом</p>
+      
+      <pre style="font-size: 19px;">
+        <code class="language-javascript line-numbers">
+          let age = 18;
+
+          switch (age) {
+            case 0:
+              console.log('Вы еще не родились');
+              break;
+            case 7:
+              console.log('Первый класс!');
+              break;
+            case 18:
+              console.log('Доступ разрешен');
+              break;
+
+            default:
+              console.log('Доступ запрещен');
+              break;
+          }
+        </code>
+      </pre>
+    </section>
+    
+    <section class="slide chapter" id="strings">
+      <h2>Что такое строки для компьютера? Кодировки</h2>
+    </section>
+
+    <section class="slide">
+      <h2>А теперь к основной теме!</h2>
+      <p>В JavaScript любые текстовые данные являются строками. Строки же в свою очередь состоят из символов. Даже пробел — это символ.</p>
+      <p>Но так как компьютеры умеют работать только с числами (всюду одни нули и единицы), нам нужно уметь числа сопоставлять с буквами.</p>
+      <p>Для этого используются таблицы кодировок. В вебе стандартно используют utf8, потому что в нее умещается куча символов.</p>
+    </section>
+
+    <section class="slide">
+      <h2>А как это выглядит?</h2>
+      <p>Вот отрывок ASCII таблицы, чтобы мы понимали о чем речь.</p>
+      <p>Символы с кодами 128–255 (Кодовая таблица 1251 – MS Windows)</p>
+      <br>
+      
+      <table class="simple-table" style="font-size: 18px;">
+        <thead>
+          <td>
+            <b>Код</b>
+          </td>
+          <td>
+            <b>Символ</b>
+          </td>
+          <td>
+            <b>Код</b>
+          </td>
+          <td>
+            <b>Символ</b>
+          </td>
+          <td>
+            <b>Код</b>
+          </td>
+          <td>
+            <b>Символ</b>
+          </td>
+          <td>
+            <b>Код</b>
+          </td>
+          <td>
+            <b>Символ</b>
+          </td>
+        </thead>
+
+        <tr>
+          <td>128</td>
+          <td>Ђ</td>
+          <td>160</td>
+          <td></td>
+          <td>192</td>
+          <td>А</td>
+          <td>224</td>
+          <td>а</td>
+        </tr>
+
+        <tr>
+          <td>129</td>
+          <td>Ѓ</td>
+          <td>161</td>
+          <td>Ў</td>
+          <td>193</td>
+          <td>Б</td>
+          <td>225</td>
+          <td>б</td>
+        </tr>
+
+        <tr>
+          <td>130</td>
+          <td>‚</td>
+          <td>162</td>
+          <td>ў</td>
+          <td>194</td>
+          <td>В</td>
+          <td>226</td>
+          <td>в</td>
+        </tr>
+
+        <tr>
+          <td>131</td>
+          <td>ѓ</td>
+          <td>163</td>
+          <td>Ј</td>
+          <td>195</td>
+          <td>Г</td>
+          <td>227</td>
+          <td>г</td>
+        </tr>
+
+        <tr>
+          <td>132</td>
+          <td>„</td>
+          <td>164</td>
+          <td>¤</td>
+          <td>196</td>
+          <td>Д</td>
+          <td>228</td>
+          <td>д</td>
+        </tr>
+
+        <tr>
+            <td>133</td>
+            <td>…</td>
+            <td>165</td>
+            <td>Ґ</td>
+            <td>197</td>
+            <td>Е</td>
+            <td>229</td>
+            <td>е</td>
+          </tr>
+      </table>
+
+      <p>Таких таблиц много, но сейчас используется большая универсальная таблица <code>UTF-8</code>.</p>
+    </section>
+
+    <section class="slide">
+      <h2>Где ваши стринги?</h2>
+      <p>А почему собственно такое странное название у этого типа данных?</p>
+      <p>Все просто. Строки называются string, потому что они похожи на нитки (один из буквальных переводов данного слова с английского), на которые нанизываются бусины-символы.</p>
+      <br>
+      <img src="./pic/TLAESSN.png" style="height: 320px">
+    </section>
+    
+    <section class="slide chapter" id="chars">
+      <h2>Создание строк и спецсимволы</h2>
+    </section>
+
+    <section class="slide">
+      <h2>Создание строк</h2>
+      <p>Строки создаются при помощи двойных или одинарных кавычек (также есть <code>ES6 template string</code>, но об этом мы будем говорить уже на продвинутом курсе по языку):</p>
+      
+      <pre>
+        <code class="language-javascript line-numbers">
+          let text = "Обычная строка";
+          let anotherText = 'Тоже строка';
+          let str = "012345";
+        </code>
+      </pre>
+    </section>
+
+    <section class="slide">
+      <h2>Специальные символы</h2>
+      <p>А еще строки могут содержать специальные символы. Они позволяют нам легко добавлять в вывод новые строки или, например, смайлики/иконки.</p>
+      <p>Самый часто используемый из таких символов – это «перевод строки».</p>
+      <p>Он обозначается как <code>\n</code></p>
+      
+      <pre>
+        <code class="language-javascript line-numbers">
+          // выведет "string" на новой строке
+          console.log( 'Привет\nstring!' );
+        </code>
+      </pre>
+    </section>
+
+    <section class="slide">
+      <h2>И что мне делать с этими строками?</h2>
+      <p>Вариантов достаточно много!
+        <br>Одна из самых важных и наиболее часто используемых операций для строк - это операция сложения. Как думаете, что она означает?</p>
+      <p>Что мы получим в результате исполнения такой строчки кода?</p>
+      <p><code>"САША" + "МАША" = ?</code></p>
+    </section>
+
+    <section class="slide">
+      <h2>Посмотрим на ответ?</h2>
+      <p>В жизни мы, возможно, и получили бы в результате такого сложения любовь, но бессердечный JS выдаст нам просто <code>САШАМАША</code>, причем без пробела, так как мы его явно не задали.</p>
+    </section>
+
+    <section class="slide">
+      <h2>Конкатенация в действии</h2>
+      <p>Конкатенацией (она же “склейка”/объединение) строк называется операция, в результате которой мы из нескольких строк получаем одну итоговую.</p>
+      <p>Мы можем как объединить все за один раз, так и динамически обновлять нашу переменную со строкой.</p>
+      <p>Вот как это можно сделать:</p>
+      
+      <pre>
+        <code class="language-javascript line-numbers">
+          let myString = 'Я' + ' умею ' + 'объединять строки!';
+
+          let methodsCount = 2;
+          let dynamicString = '';
+          dynamicString += 'А теперь';
+          dynamicString += ' я умею работать со строками ';
+          dynamicString += methodsCount + ' способами!';
+        </code>
+      </pre>
+    </section>
+
+    <section class="slide chapter" id="methods">
+      <h2>Методы для работы со строками</h2>
+    </section>
+
+    <section class="slide">
+      <h2>А что еще можно делать со строками?</h2>
+      <p>У строк (как и большинства других типов данных в JS) есть набор методов-помощников, которые позволяют удобно с ними работать.</p>
+      <p>С помощью этих методов мы можем приводить строку к нижнему (или верхнему) регистру, узнать из скольки символов она состоит, обрезать лишние пробелы (или просто какую-либо часть строки), превратить строку в массив или заменять те или иные символы в исходной строке.</p>
+      <p>Давайте посмотрим на несколько примеров.</p>
+    </section>
+
+    <section class="slide">
+      <h2>Длина length</h2>
+      <p>Одно из самых частых действий со строкой – это получение ее длины. Считается количество символов:</p>
+      
+      <pre>
+          <code class="language-javascript line-numbers">
+            // 3 символа. Третий - перевод строки
+            let js = "JS\n";
+            console.log(js.length); // 3
+          </code>
+        </pre>
+    </section>
+
+    <section class="slide">
+      <h2>Смена регистра</h2>
+      <p>Методы <code>toLowerCase()</code> и <code>toUpperCase()</code> меняют регистр строки на нижний/верхний:</p>
+      <pre>
+        <code class="language-javascript line-numbers">
+          console.log("Интерфейс".toUpperCase());
+        </code>
+      </pre>
+
+      <p>Пример ниже получает первый символ и приводит его к нижнему регистру:</p>
+      <pre>
+        <code class="language-javascript line-numbers">
+          console.log("ИНТЕРФЕЙС".toLowerCase());
+        </code>
+      </pre>
+    </section>
+
+    <section class="slide">
+      <h2>Подстроки: substring</h2>
+      <p><code>substring(start, end)</code>
+      <br>Метод substring(start, end) возвращает подстроку с позиции start до, но не включая end.</p>
+      <pre>
+        <code class="language-javascript line-numbers">
+          let str = "stringify";
+          // "s", символы с позиции 0 по 1 не включая 1.
+          alert(str.substring(0,1));
+        </code>
+      </pre>
+
+      <p>Если аргумент end отсутствует, то идет до конца строки:</p>
+      <pre>
+        <code class="language-javascript line-numbers">
+          let str = "stringify";
+          // ringify, символы с позиции 2 до конца
+          alert(str.substring(2));
+        </code>
+      </pre>
+    </section>
+
+    <section class="slide">
+      <h2>Есть ли подстрока в строке? <code>includes</code></h2>
+      <pre style="font-size: 20px;">
+        <code class="lang-js">
+          includes(substr)
+        </code>
+      </pre>
+      <p>Если нужно проверить, что в строке есть какая-либо буква или подстрока, то нужно воспользоваться методом <code>includes</code>. Нужно передать в метод искомую в строку. Метод вернет <code>true</code> если такая подстрока есть в исходной строке и <code>false</code>, если ее нет.</p>
+      <pre class="line-numbers" style="font-size: 18px;">
+        <code class="lang-js">
+          let phrase = "Мама мыла раму";
+
+          console.log(phrase.includes("мама")); // true → слово «мама» есть во фразе
+          console.log(phrase.includes("папа")); // false → слова «папа» во фразе нет
+
+          console.log(phrase.includes("р")); // true → буква «р» есть 
+        </code>
+      </pre>
+    </section>
+
+    <section class="slide chapter" id="algorythms">
+      <h2>Алгоритмы</h2>
+    </section>
+
+    <section class="slide">
+      <h2>Алгоритмы</h2>
+      <p>Алгоритм – это пошаговая инструкция, где результат прошлого шага строго определен и используется в качестве входных данных для следующего шага.</p>
+      <p>Мы используем алгоритмы каждый день и даже не замечаем этого. Например, рабочий (или учебный) день - это последовательность действий, в которой мы шаг за шагом что-то делаем.</p>
+    </section>
+
+    <section class="slide">
+      <h2>Давайте визуализируем</h2>
+      <img src="./pic/simple-algorythm.jpg" style="height: 450px;">
+    </section>
+
+    <section class="slide">
+      <h2>А что же в программировании?</h2>
+      <p>В программировании все точно также, только здесь мы решаем задачи и они зачастую являются более абстрактными и сложными для повседневного восприятия.</p>
+      <p>Например, нам нужно посчитать наибольший общий делитель двух чисел или вывести приветствие пользователю.</p>
+      <p>Любые задачи можно решить разными способами. Как понять, какой лучше?</p>
+      <p>Как правило, чем меньше количество затраченных ресурсов и времени на исполнение, тем лучше код.</p>
+    </section>
+
+    <section class="slide">
+      <h2>Телефонный справочник</h2>
+      <p>Давайте представим, что телефонный справочник все еще актуален (да, тот бумажный, если вы их застали). Допустим, мы хотим набрать Ивана Иванова. Иван точно есть в телефонном справочнике.</p>
+      <p><b>Как найти его номер? Как бы вы действовали?</b></p>
+      <img src="./pic/phone-book.jpg" style="height: 350px;">
+    </section>
+
+    <section class="slide">
+      <h2>Метод полного перебора</h2>
+      <p>Самый простой способ – идти по номерам по порядку и сравнивать имя с искомым значением. То есть:</p>
+      <ol>
+        <li>Марина Алексеева –> не подходит</li>
+        <li>Григорий Антипин –> не подходит</li>
+      </ol>
+      <p>И так далее, пока не найдем Ивана Иванова. Вероятно, понадобятся десятки и даже сотни операций сравнения — все зависит от толщины справочника.</p>
+      <p>Такой способ называется линейным поиском. Здесь можно посмотреть на визуализацию данного подхода - <a href="http://www.cs.armstrong.edu/liang/animation/web/LinearSearch.html">http://www.cs.armstrong.edu/liang/animation/web/LinearSearch.html</a></p>
+    </section>
+
+    <section class="slide">
+      <h2>Бинарный поиск</h2>
+      <p style="font-size: 20px;">Есть способ лучше. Воспользуемся фактом, что справочник отсортирован по фамилиям.</p>
+      <p style="font-size: 20px;">В нашем случае алгоритм будет примерно такой:</p>
+      <ol style="font-size: 20px;">
+        <li>Открываем справочник посередине</li>
+        <li>Смотрим, на какую букву идут фамилии</li>
+        <li>Если нам повезло, то мы сразу попадем на страницу с фамилиями на И, тогда мы нашли Иванова!</li>
+        <li>Если фамилии идут на буквы, идущие после И, то Иванов будет в левой половине книги. Иначе — в правой половине</li>
+        <li>Повторяем все с первого пункта, только делим пополам уже не весь справочник, а ту его половину, где находится фамилия Иванов</li>
+      </ol>
+      <p style="font-size: 20px;">Посотрим демо: <a href="http://www.cs.armstrong.edu/liang/animation/web/BinarySearch.html">http://www.cs.armstrong.edu/liang/animation/web/BinarySearch.html</a></p>
+    </section>
+
+    <section class="slide">
+      <h2>Кто быстрее?</h2>
+      <p>Давайте сравним эти подходы с помощью наглядной демонстрации по ссылке:</p>
+      <a href="https://www.mathwarehouse.com/programming/images/binary-vs-linear-search/binary-and-linear-search-animations.gif" style="font-size: 16px;">
+      https://www.mathwarehouse.com/programming/images/binary-vs-linear-search/binary-and-linear-search-animations.gif
+      </a>
+    </section>
+
+    <section class="slide">
+      <h2>Выводы?</h2>
+      <p>Есть целый раздел в Computer Sience, который занимается изучением алгоритмов. На этом этапе важно понять лишь то, что код, решающий одну и ту же задачу может быть лучше или хуже.</p>
+      <p>Чем больше объем входных данных и нагрузки на ваше приложение/сайт, тем сильнее будет видна разница между алгоритмами.</p>
+      <p>Подробнее эту тему будем обсуждать на углубленных курсах.</p>
+    </section>
+
+    <section class="slide chapter" id="debugging">
+      <h2>Работа с ошибками. Отладка</h2>
+    </section>
+
+    <section class="slide">
+      <h2>Отладка</h2>
+      <p>А теперь давайте поговорим о том, как убедиться, что ваш код работает верно. Как его проверить?</p>
+      <p>В первую очередь мы должны проверить очевидные сценарии. Если, скажем, у нас есть программа, в которой мы делим числа, то мы можем легко проверить, что мы получаем верный результат этого деления.</p>
+      <pre>
+        <code class="language-javascript line-numbers">
+          let a = 30;
+          let b = 3;
+          
+          console.log(a / b); // 10
+        </code>
+      </pre>
+    </section>
+
+    <section class="slide">
+      <h2>Пограничные случаи</h2>
+      <p>А что, если в качестве знаменателя мы случайно получим ноль (представим, что мы получаем входные данные от пользователя, а не определяем самостоятельно в программе)? В JS никакие арифметические действия не приводят к ошибкам. Мы просто получим совершенно неожиданный (и нежеланный) для нас результат</p>
+      <pre>
+        <code class="language-javascript line-numbers">
+          let a = 30;
+          let b = 0;
+          
+          console.log(a / b); // Infinity
+        </code>
+      </pre>
+    </section>
+
+    <section class="slide">
+      <h2>Совет</h2>
+      <p>Если что-то идет не так, то можно печатать промежуточные значения; так лучше понимаешь, что происходит и как выполняется код</p>
+      <pre>
+        <code class="language-javascript line-numbers">
+          // допустим пользователь ввел 9
+          let bobAge = prompt('Введите возраст Боба');
+          // допустим пользователь ввел 12
+          let yourAge = prompt('Введите ваш возраст');
+          
+          if (bobAge > yourAge) {
+              console.log('Боб старше вас');
+          } else {
+              console.log('Вы старше Боба');
+          }
+        </code>
+      </pre>
+    </section>
+
+    <section class="slide">
+      <h2>Что же мы увидим?</h2>
+      <p>Мы увидим сообщение в консоле о том, что <code>'Боб старше вас'</code>. Но ведь очевидно, что 12 больше, чем 9. В чем же проблема?</p>
+      <p>А проблема в том, что пользовательский ввод всегда представляет из себя строку. А строки в JS сравниваются совсем иначе, нежели числа. Если перед условной конструкцией мы выведем в консоль <code>bobAge</code> и <code>yourAge</code>, то мы сможем увидеть, что это строки и догадаться привести их к числам с помощью встроенных методов языка (например, <code>parseInt</code> или просто глобального объекта <code>Number</code>)</p>
+      <pre style="font-size: 20px;">
+        <code class="language-javascript line-numbers">
+          let bobAge = prompt('Введите возраст Боба');
+          let yourAge = prompt('Введите ваш возраст');
+          
+          console.log(typeof bobAge, typeof yourAge); // string, string
+        </code>
+      </pre>
+    </section>
+
+    <section class="slide">
+      <h2>Ошибки</h2>
+      <p>А что делать, если код падает с ошибкой? Скажем вы просто опечатались и вместо хоть какого-то результата получаете ошибку. Консоль разработчика вся красная (как-будто тут кого-то убили), приложение не работает и кажется, что все плохо.</p>
+      <pre style="font-size: 20px;">
+        <code class="language-javascript line-numbers">
+          let a = 30; // let
+          let b = 0; // let
+          
+          console,log(a / b); // Uncaught ReferenceError: log is not defined
+        </code>
+      </pre>
+      <p>В этом случае важно понять, что ошибки - это на самом деле наши друзья. На них мы учимся. А с помощью сообщений об ошибках - легко понять в каком месте и из-за чего это произошло.</p>
+    </section>
+
+    <section class="slide">
+      <h2>Виды ошибок</h2>
+      <p>В JS существует четыре основных типа ошибок:</p>
+      <ul>
+        <li><code>ReferenceError</code></li>
+        <li><code>TypeError</code></li>
+        <li><code>SyntaxError</code></li>
+        <li><code>Logical error</code></li>
+      </ul>
+      <p>Давайте рассмотрим их чуть подробнее.</p>
+    </section>
+
+    <section class="slide">
+      <h2>ReferenceError</h2>
+      <p>Неправильное имя. Либо мы забыли определить переменную, либо опечатались, либо она была удалена в ходе исполнения программы</p>
+      <pre style="font-size: 20px;">
+        <code class="language-javascript line-numbers">
+          let x = 1;
+
+          console.log(x + y); // Uncaught ReferenceError: y is not defined
+        </code>
+      </pre>
+    </section>
+
+    <section class="slide">
+      <h2>TypeError</h2>
+      <p>Путать одно с другим. Если мы назначили в переменную число или строку, а потом решили обратиться к ней как к функции - у нас ничего не выйдет</p>
+      <pre style="font-size: 20px;">
+        <code class="language-javascript line-numbers">
+          let obj;
+
+          console.log(obj.value); // Uncaught TypeError: 
+          // Cannot read property 'value' of undefined
+        </code>
+      </pre>
+    </section>
+
+    <section class="slide">
+      <h2>SyntaxError</h2>
+      <p>Нарушение правил языка. Например, мы решили начать название переменной с цифры</p>
+      <pre style="font-size: 20px;">
+        <code class="language-javascript line-numbers">
+          let 1player = 'Bob'; // Uncaught SyntaxError:
+          // Invalid or unexpected token
+        </code>
+      </pre>
+    </section>
+
+    <section class="slide">
+      <h2>Logical error</h2>
+      <p>Ошибка в нашей с вами логике. Это самый коварный тип ошибок - программа будет функционировать, но мы будем получать неверный результат работы.</p>
+      <pre style="font-size: 20px;">
+        <code class="language-javascript line-numbers">
+          let x = 1;
+          let y = 2;
+          
+          console.log(x + y); // ошибки не будет, но в результате
+          // мы получим строку '12', так как переменные у нас разных типов
+        </code>
+      </pre>
+    </section>
+
+    
+    <section class="slide">
+      <h2>Чему мы научились?</h2>
+      <ol>
+        <li>Строки не так просты, как кажутся</li>
+        <li>Стали на шаг ближе к нинзя JS, положив в свой арсенал такой мощный инструмент, как строки и методы работы с ними</li>
+        <li>Наконец-то разобрались почему в документах мы иногда встречали “кракозябры”</li>
+        <li>Узнали, что такое алгоритмы и зачем они нам нужны</li>
+        <li>Научились разбираться в ошибках и теперь готовы во всеоружии к любым неожиданностям</li>
+      </ol>
+      <h2>Радуемся!</h2>
+    </section>
+    
+    <section class="slide">
+      <h2>Домашнее задание</h2>
+      <p>Давайте посмотрим ваше <a href="https://github.com/netology-code/pb-homeworks/tree/master/1.3_strings_and_debug">домашнее задание</a>.</p>
+      <ul>
+        <li>Вопросы по домашней работе задаем в группе Facebook!</li>
+        <li>Задачи можно сдавать по частям.</li>
+        <li>Зачет по домашней работе проставляется после того, как приняты все <b>3 задачи</b>.</li>
+      </ul>
+    </section>
+    
+    <section class="slide">
+      <h2>Что почитать?</h2>
+      <ul style="font-size: 20px;">
+        <li>
+          <a href="https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/String">https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/String</a> - классическая документация от MDN
+        </li>
+        <li>
+          <a href="https://learn.javascript.ru/string">https://learn.javascript.ru/string</a> - разбор от Ильи Кантора
+        </li>
+      </ul>
+    </section>
+
+    <section class="slide">
+      <h2>А посмотреть?</h2>
+      <ul style="font-size: 20px;">
+        <li>
+          <a href="https://www.youtube.com/watch?v=VRz0nbax0uI">https://www.youtube.com/watch?v=VRz0nbax0uI</a> - 20 методов, которые помогут вам жонглировать строками в JS, как настоящий PRO
+        </li>
+        <li>
+          <a href="https://www.youtube.com/watch?v=DljZQyNwdOg">https://www.youtube.com/watch?v=DljZQyNwdOg</a> - хороший обзор того, на что мы сегодня посмотрели (на английском)
+        </li>
+        <li>
+          <a href="https://stepik.org/lesson/99598/step/1?unit=75361">https://stepik.org/lesson/99598/step/1?unit=75361</a> - про типы ошибок в JS и то как с ними бороться
+        </li>
+        <li>
+          <a href="https://www.youtube.com/watch?v=U9o49qwa6hk">https://www.youtube.com/watch?v=U9o49qwa6hk</a> - увлекательнейшая лекция по алгоритмам (в рамках легендарного курса CS50 от Harvard University)
+        </li>
+        <li>
+          <a href="https://stepik.org/course/217/">https://stepik.org/course/217/</a> - курс от Computer Science Center на stepik
+        </li>
+        <li>
+          <a href="https://www.youtube.com/watch?v=JQhciTuD3E8">https://www.youtube.com/watch?v=JQhciTuD3E8</a> - еще немного про алгоритмы (How Binary Search Works)
+        </li>
+      </ul>
+    </section>
+    
+    <section class="slide last">
+      <p class="thanx">Спасибо за внимание! Время задавать вопросы</p>
+      <address>Николай Лопин</address>
+      <ul class="contacts">
+        <li><a href="mailto:lopinopulos@gmail.com"><i class="fa fa-envelope-o" aria-hidden="true"></i>lopinopulos@gmail.com</a></li>
+        <li><a href="https://www.facebook.com/nikolay.lopin"><i class="fa fa-facebook" aria-hidden="true"></i>nikolay.lopin</a></li>
+        <li><i class="fa fa-telegram" aria-hidden="true"></i>@nlopin</li>
+      </ul>
+    </section>
+
+    <div class="progress"></div>
+    <script src="shower/shower.min.js"></script>
+    <script src="js/prism.js?v=2"></script>
+  </body>
+</html>

@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns="http://www.w3.org/1999/html">
+  <head>
+    <title>Ассоциативные массивы</title>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="i/favicon.ico" type="image/x-icon">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="node_modules/shower-ribbon/styles/screen-4x3.css">
+    <link rel="stylesheet" href="css/prism.css">
+    <link rel="stylesheet" href="css/prism-fix.css">
+    <link rel="stylesheet" href="css/netology.css">
+    <link rel="stylesheet" href="css/fake-browser.css">
+    <link rel="stylesheet" href="css/features.css">
+
+    <script src="https://use.fontawesome.com/70378a66b8.js"></script>
+  </head>
+  <body class="shower">
+    <header class="caption">
+      <h1>Ассоциативные массивы</h1>
+      <p>Алёна Батицкая</p>
+    </header>
+
+    <section class="slide" id="cover">
+      <h2>Ассоциативные массивы</h2>
+      <p>
+        <img src="i/alenabat.jpg" alt="" class="avatar">
+        Алёна Батицкая
+      </p>
+    </section>
+
+    <section class="slide author" id="author">
+      <img src="i/alenabat.jpg" alt="">
+      <h1>Алёна Батицкая</h1>
+      <p class="position">Frontend-разработчик</p>
+      <ul class="contacts">
+        <li><a href="https://t.me/alenabat"><i class="fa fa-telegram" aria-hidden="true"></i>@alenabat</a></li>
+        <li><a href="https://www.facebook.com/ABatickaya"><i class="fa fa-facebook" aria-hidden="true"></i>fb.me/ABatickaya</a></li>
+      </ul>
+    </section>
+
+    <section class="slide" id="roadmap">
+      <h2>План занятия</h2>
+      <ol>
+        <li><a href="#repeating">Повторение — мать учения</a></li>
+        <li><a href="#what">Что такое ассоциативный массив?</a></li>
+        <li><a href="#actions">Операции с объектом</a></li>
+        <li><a href="#access">Доступ к свойствам</a></li>
+        <li><a href="#where">Где попрактиковаться?</a></li>
+      </ol>
+    </section>
+
+    <section class="slide chapter" id="repeating">
+      <h2>Вспомним прошлый материал</h2>
+    </section>
+    
+    <section class="slide">
+      <h2>Вспомним прошлый материал</h2>
+      <p>Как вы думаете, что выведет следующий код?</p>
+      <pre>
+        <code class="language-javascript line-numbers">
+          for (let i = 0; i <= 100; i++) {
+            if (i % 2 !== 0) {
+              console.log(i);
+            }
+          }
+        </code>
+      </pre>
+    </section>
+    
+    <section class="slide">
+      <h2>Посмотрим на результат</h2>
+      <p>При помощи цикла <code>for</code> и условия внутри него мы выведем нечётные числа от 0 до 100 (99 в нашем случае будет последним, а 1 — первым).</p>
+      <p>В цикле мы пробегаемся по всем целым числам от нуля до 100 включительно с шагом в единицу, а так как на каждом шаге мы делаем проверку на нечетность числа — в консоль попадают только часть чисел.</p>
+    </section>
+
+    <section class="slide chapter" id="what">
+      <h2>Что такое ассоциативный массив?</h2>
+    </section>
+    
+    <section class="slide">
+      <h2>Ассоциативный массив и с чем его едят</h2>
+      <p>Имена и числа мы с вами научились собирать в единое целое. А что если нам нужно описать какую-то сущность из реального мира, и одного только имени не достаточно?</p>
+      <code>
+        ЗАДАЧА
+      </code>
+      <pre>
+        <code class="language-javascript">
+          — Интернет-магазин книг.
+          — Нам нужно хранить информацию о книгах.
+          — О каждой книге нам известны её ISBN, название, 
+          автор, цена, количество на складе.
+          — Разработать структуру представления информации 
+          о книгах, удобную для хранения и обработки.
+        </code>
+      </pre>
+    </section>
+    
+    <section class="slide">
+      <h2>Используем «плоские» массивы</h2>
+      <p>Зарезервируем под каждую книгу 5 ячеек массива и разместим в них информацию о книге:</p>
+      <pre>
+        <code class="language-javascript line-numbers">
+          let books = [
+          'b1', 'История земли', 'Филип Фрай', 946, 16,
+          'b2', 'Моя жизнь…', 'Доктор Джон Зоидберг', 731, 2,
+          /* … */ ];
+
+          for (let i = 0; i < books.length; i += 5) {
+              console.log('ID:', books[i]); // ID b1
+              console.log(books[i + 1]); // История земли
+              console.log('Цена:', books[i + 3]); // Цена 946
+          }
+        </code>
+      </pre>
+    </section>
+    
+    <section class="slide">
+      <h2>Используем связанные массивы</h2>
+      <p>Зарезервируем под каждую книгу 5 ячеек массива и разместим в них информацию о книге:</p>
+      <pre style="font-size: 20px;">
+        <code class="language-javascript line-numbers">
+          let bookIDs = ['b1', 'b2' /* , … */ ];
+          let bookTitles = ['История земли', 'Моя жизнь…' /* , … */];
+          let bookAuthors = ['Филип Фрай', 'Доктор Джон Зоидберг' /* , … */];
+          let bookPrices = [946, 731 /* , … */ ];
+          let bookAmounts = [16, 2 /* , … */ ];
+
+          for (let i = 0; i < booksIDs.length; ++i) {
+            console.log('ID:', booksIDs[i]); // ID: b1
+            console.log(bookTitles[i]); // История земли
+            console.log('Цена:', bookPrices[i]); // Цена 946
+          };
+        </code>
+      </pre>
+    </section>
+    
+    <section class="slide">
+      <h2>Используем вложенные массивы</h2>
+      <p>Представим каждую книгу отдельным массивом:</p>
+      <pre style="font-size: 24px;">
+        <code class="language-javascript line-numbers">
+          let books = [
+          [ 'b1', 'История земли', 'Филип Фрай', 946, 16 ],
+          [ 'b2', 'Моя жизнь…', 'Доктор Джон Зоидберг', 731, 2 ],
+          /* … */ ];
+
+          for (let i = 0; i < books.length; ++i) {
+              console.log('ID:', books[i][0]); // ID: b1
+              console.log(books[i][1]); // История земли
+              console.log('Цена:', books[i][3]); // Цена 946
+          }
+        </code>
+      </pre>
+    </section>
+    
+    <section class="slide">
+      <h2>Проанализируем варианты решения</h2>
+      <ul>
+        <li>Для «плоского» массива при добавлении еще одного свойства книге весь уже написанный код будет работать неверно.</li>
+        <li>Для связанных массивов постоянно нужно следить за тем, чтобы индексы не разъехались. Добавление свойства не сломает существующий код, но чтобы использовать новое свойство, придется все переписать.</li>
+        <li>Вложенный массив имеет минимум недостатков. Нужно только следить, чтобы порядок свойств в книге-массиве не нарушался и не совсем очевидно назначение свойств.</li>
+      </ul>
+    </section>
+    
+    <section class="slide">
+      <h2>А есть ли другие варианты?</h2>
+      <p>Что, если дать элементам книги-массива названия вместо номеров?</p>
+      <p>Для этого нам подойдет другая структура данных. Ассоциативный массив (или <i>Объект</i>) — структура данных, в которой можно хранить любые данные в формате ключ-значение.</p>
+      <p>Её можно легко представить как шкаф с подписанными ящиками. Все данные хранятся в ящичках. По имени можно легко найти ящик и взять то значение, которое в нём лежит.</p>
+    </section>
+    
+    <section class="slide">
+      <h2>В реальной жизни</h2>
+      <img src="./pic/data-scructures.png" style="width: 690px;">
+    </section>
+    
+    <section class="slide">
+      <h2>В коде</h2>
+      <p>Посмотрим, как мы можем описать предыдущую картинку, а затем разберемся в деталях:</p>
+      <pre>
+        <code class="language-javascript line-numbers">
+          let locker = {
+            undies: ['pants1', 'pants2'],
+            bras: ['bra1', 'bra2'],
+            isLocked: false
+          };
+          
+          console.log(locker);
+          console.log(locker.undies[0]); // pants1
+        </code>
+      </pre>
+    </section>
+
+    <section class="slide chapter" id="actions">
+      <h2>Операции с объектом</h2>
+    </section>
+    
+    <section class="slide">
+      <h2>Создание объектов</h2>
+      <p>Создание и инициализация объектов очень похожа на то, что мы уже видели в лекции по массивам:</p>
+      <ul>
+        <li>объект объявляется с помощью специального литерала — фигурных скобок (<code>{}</code>);</li>
+        <li>при объявлении вы можете оставить его пустым и добавить данные позже, а можете и сразу инициализировать какими-то значениями (<code>{ isEmpty: false }</code>, <code>{ name: 'Bob' }</code>);</li>
+        <li>иниализация, как вы уже заметили, заключается в добавлении в объект пар <code>ключ: значение</code>.</li>
+      </ul>
+    </section>
+    
+    <section class="slide">
+      <h2>Чтение и запись данных</h2>
+      <p>Доступ к свойствам объекта осуществляется по имени свойства (иногда говорят «по ключу»).</p>
+      <p>Для обращения к свойствам используется запись «через точку» <code>объект.свойство</code>.</p>
+      <pre style="font-size: 20px;">
+        <code class="language-javascript line-numbers">
+          let person = {};
+
+          // при присвоении свойства в объекте автоматически создаётся "ящик"
+          // с именем "name" и в него записывается содержимое 'Bob'
+          person.name = 'Bob';
+          person.age = 18;
+
+          console.log(person); // { name: "Bob", age: 18 }
+          console.log(person.name); // "Bob"
+        </code>
+      </pre>
+    </section>
+    
+    <section class="slide">
+      <h2>Еще немного про чтение</h2>
+      <p>Альтернативный способ обратиться к полю объекта (для того, чтобы прочитать или записать что-то в него) — это доступ через квадратные скобки:</p>
+      <pre>
+        <code class="language-javascript line-numbers">
+          let person = { name: "Bob", age: 18 };
+
+          console.log(person['name']); // 'Bob'
+        </code>
+      </pre>
+
+      <p>Свойство в данном случае берется в кавычки — является строкой. Также мы можем вместо строки использовать переменную:</p>
+      <pre>
+        <code class="language-javascript line-numbers">
+          let field = 'age';
+
+          console.log(person[field]); // 18
+        </code>
+      </pre>
+    </section>
+    
+    <section class="slide">
+      <h2>И еще чуть-чуть :)</h2>
+      <p>А что будет, если попробовать прочитать у объекта свойство, которое мы не задали? Все просто — в случае обращения к несуществующим полям JS возвращает нам <code>undefined</code>.</p>
+      <pre>
+        <code class="language-javascript line-numbers">
+          let person = { name: "Bob", age: 18 };
+
+          console.log(person.friends); // undefined
+        </code>
+      </pre>
+    </section>
+    
+    <section class="slide">
+      <h2>Удаление</h2>
+      <p>Удаление свойства из объекта существляется оператором <code>delete</code>.</p>
+      <pre>
+        <code class="language-javascript line-numbers">
+          let person = { name: "Bob", age: 18 };
+
+          delete person.age;
+
+          console.log(person); // { name: "Bob" }
+        </code>
+      </pre>
+    </section>
+    
+    <section class="slide chapter" id="access">
+        <h2>Доступ к свойствам</h2>
+      </section>
+    
+    <section class="slide">
+      <h2>Проверка наличия свойства в объекте</h2>
+      <p>Убедиться, что объект содержит поле с определенным именем можно с помощью оператора <code>in</code>. Но, как правило, достаточно просто попробовать прочитать это свойство и если мы получим значение, отличное от <code>undefined</code> — значит поле определено и присутствует в данном объекте.</p>
+      <pre style="font-size: 22px;">
+        <code class="language-javascript line-numbers">
+          let person = { name: "Bob", age: 18 };
+
+          console.log('name' in person); // true
+          console.log('surname' in person); // false
+          // person.hasPets === undefined - поле в объекте отсутствует
+          console.log(person.hasPets);
+        </code>
+      </pre>
+    </section>
+    
+    <section class="slide">
+      <h2>Попрактикуемся?</h2>
+      <p>Представим, что в нашем магазине авторы и их произведения объединены в виде единого объекта:</p>
+      <pre>
+        <code class="language-javascript line-numbers">
+          let author = {
+            id: '98y98jhkjh',
+            name: 'Тургенев, Иван Сергеевич',
+            books: [
+                'Ася',
+                'Муму',
+                'Отцы и дети'
+            ]
+          };
+        </code>
+      </pre>
+      <p>Наша задача — вывести имя автора, а затем все его произведения, каждое на своей строчке.</p>
+    </section>
+    
+    <section class="slide">
+      <h2>Посмотрим на вариант реализации</h2>
+      <pre>
+        <code class="language-javascript line-numbers">
+          console.log(author.name + ':\n');
+
+          for (let i = 0; i < author.books.length; i++) {
+            console.log('- ' + author.books[i] + ';\n');
+          }
+        </code>
+      </pre>
+    </section>
+    
+    <section class="slide">
+      <h2>Усложним задачу</h2>
+      <p>А что если в массиве будут не строки, а объекты. Например, коллекция книг одного жанра.</p>
+      <pre style="font-size: 22px;">
+        <code class="language-javascript line-numbers">
+          let books = {};
+          books.fantasy = [
+              { author: 'Айзек Азимов', title: 'Я, робот' },
+              { author: 'Роберт Хайнлайн', title: 'Звездный десант' },
+              { author: 'Герберт Уэллс', title: 'Война миров' }
+          ]
+        </code>
+      </pre>
+      <p>Задача очень похожая — вывести автора и его произведение.</p>
+    </section>
+    
+    <section class="slide">
+      <h2>Итак</h2>
+      <p>Какой бы вложенной не была наша структура данных — принцип один и тот же — значения полей объекта мы получаем «через точку», а при работе с массивами используем циклы или встроенные методы-помощники.</p>
+      <pre style="font-size: 18px;">
+        <code class="language-javascript line-numbers">
+          for (let i = 0; i < books.fantasy.length; i++) {
+            let book = books.fantasy[i];
+            console.log('Автор: ' + book.author + ', книга: "' + book.title + '".');
+          }
+        </code>
+      </pre>
+    </section>
+    
+    
+    <section class="slide">
+      <h2>Чему мы научились?</h2>
+      <ol>
+        <li>Узнали, что такое ассоциативные массивы и их особенности в JS.</li>
+        <li>Узнали, как описать объекты реального мира в коде.</li>
+        <li>Поработали еще с одной структурой данных и стали на шаг ближе к профессиональнам своего дела.</li>
+      </ol>
+    </section>
+    
+    <section class="slide">
+      <h2>Домашнее задание</h2>
+      <p>Давайте посмотрим на <a href="https://github.com/netology-code/pb-homeworks/tree/master/2.3_associative_arrays">домашнее задание</a>.</p>
+      <ul>
+        <li>Вопросы по домашней работе задаем в группе Facebook!</li>
+        <li>Задачи можно сдавать по частям.</li>
+        <li>Зачет по домашней работе проставляется после того, как приняты все <b>3 задачи</b>.</li>
+      </ul>
+    </section>
+    
+    <section class="slide" id="where">
+      <h2>Где и как можно поиграться с ассоциативными массивами</h2>
+      <ul>
+        <li>
+          <a href="http://codewars.com/">Сodewars</a>, programming challenges
+        </li>
+        <li>
+          <a href="https://learn.javascript.ru/object">Объекты как ассоциативные массивы</a>, <code>learn.javascript.ru</code>
+        </li>
+        <li>
+            Консоль браузера
+        </li>
+      </ul>
+    </section>
+    
+    <section class="slide">
+      <h2>Что почитать</h2>
+      <ul>
+        <li>
+            <a href="https://developer.mozilla.org/ru/docs/Learn/JavaScript/Объекты/Основы">
+              https://developer.mozilla.org/ru/docs/Learn/JavaScript/Объекты/Основы</a> 
+              <br>
+              — по традиции документация на MDN.
+        </li>
+        <li>
+          <a href="https://learn.javascript.ru/array">https://learn.javascript.ru/array</a> - <code>learn.javascript.ru</code>, 
+          <br>
+          опять же по традиции.
+        </li>
+      </ul>
+    </section>
+    
+    <section class="slide">
+      <h2>А посмотреть?</h2>
+      <ul>
+        <li>
+            <a href="https://www.youtube.com/watch?v=J1aIrZFnGig&index=17&list=PL363QX7S8MfSxcHzvkNEqMYbOyhLeWwem">
+              Обзор основ от Sorax
+            </a>
+        </li>
+        <li>
+          <a href="https://www.youtube.com/watch?v=0TL5SRttIs0&index=26&list=PL46F0A159EC02DF82">
+            Краткий обзор того, что мы сегодня обсудили на английском
+          </a>
+        </li>
+      </ul>
+    </section>
+
+    <section class="slide last">
+      <p class="thanx">Спасибо за внимание! Время задавать вопросы</p>
+      <address>Алёна Батицкая</address>
+      <ul class="contacts">
+        <li><a href="https://t.me/alenabat"><i class="fa fa-telegram" aria-hidden="true"></i>@alenabat</a></li>
+        <li><a href="https://www.facebook.com/ABatickaya"><i class="fa fa-facebook" aria-hidden="true"></i>fb.me/ABatickaya</a></li>
+      </ul>
+    </section>
+
+    <div class="progress"></div>
+    <script src="shower/shower.min.js"></script>
+    <script src="js/prism.js?v=2"></script>
+  </body>
+</html>

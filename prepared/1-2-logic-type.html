@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns="http://www.w3.org/1999/html">
+  <head>
+    <title>Логический тип и ветвление</title>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="i/favicon.ico" type="image/x-icon">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="node_modules/shower-ribbon/styles/screen-4x3.css">
+    <link rel="stylesheet" href="css/prism.css">
+    <link rel="stylesheet" href="css/prism-fix.css">
+    <link rel="stylesheet" href="css/netology.css">
+    <link rel="stylesheet" href="css/fake-browser.css">
+    <link rel="stylesheet" href="css/features.css">
+
+    <script src="https://use.fontawesome.com/70378a66b8.js"></script>
+  </head>
+  <body class="shower">
+    <header class="caption">
+      <h1>Логический тип и ветвление</h1>
+      <p>Николай Лопин, MyTaxi</p>
+    </header>
+
+    <section class="slide" id="cover">
+      <h2>Логический тип и ветвление</h2>
+      <p>
+        <img src="i/nlopin.png" alt="" class="avatar">
+        Николай Лопин <span class="position">MyTaxi</span>
+      </p>
+    </section>
+
+    <section class="slide author" id="author">
+      <img src="i/nlopin.png" alt="">
+      <h1>Николай Лопин</h1>
+      <p class="position">Senior JavaScript Developer в MyTaxi</p>
+      <ul class="contacts">
+        <li><a href="mailto:lopinopulos@gmail.com"><i class="fa fa-envelope-o" aria-hidden="true"></i>lopinopulos@gmail.com</a></li>
+        <li><a href="https://www.facebook.com/nikolay.lopin"><i class="fa fa-facebook" aria-hidden="true"></i>nikolay.lopin</a></li>
+        <li><i class="fa fa-telegram" aria-hidden="true"></i>@nlopin</li>
+      </ul>
+    </section>
+
+    <section class="slide" id="roadmap">
+      <h2>План занятия</h2>
+      <ol>
+        <li><a href="#repeating">Повторение - мать учения</a></li>
+        <li><a href="#why">Зачем нам условные конструкции?</a></li>
+        <li><a href="#logic-type">Логический тип данных и с чем его едят</a></li>
+        <li><a href="#algebra">Простые и сложные условия. Булева алгебра</a></li>
+        <li><a href="#conversion">Логическое преобразование</a></li>
+      </ol>
+    </section>
+
+    <section class="slide chapter" id="repeating">
+      <h2>Повторение - мать учения</h2>
+    </section>
+
+    <section class="slide">
+      <h2>Вспомним прошлый материал</h2>
+      <pre>
+        <code class="language-javascript line-numbers">
+          let message;
+
+          message = 'Hello!';
+
+          message = 'World!';
+
+          alert(message); // ?
+        </code>
+      </pre>
+    </section>
+
+    <section class="slide">
+      <h2>Что мы увидим в результате?</h2>
+      <p>Мы увидим на экране окно с сообщением ‘World!’, потому что в изначально объявленную переменную <code>message</code> мы сначала запишем значение <code>Hello!</code>, а после перезапишем его строкой <code>World!</code> и выведем на экран</p>
+    </section>
+
+    <section class="slide chapter" id="why">
+      <h2>Зачем нам условные конструкции?</h2>
+    </section>
+
+    <section class="slide">
+      <h2>Зачем нам условные конструкции?</h2>
+      <p>Код обычно выполняется линейно сверху вниз, но иногда мы хотим выполнять (или не выполнять) какой-то блок кода только если некоторое условие верно.</p>
+      <p>Допустим, нам нужно в интернет-магазине вывести количество товара, либо “товар закончился” в зависимости от наличия этого товара на складе.</p>
+      <p>Давайте посмотрим как это реализовать.</p>
+    </section>
+
+    <section class="slide">
+      <h2>Интернет-магазин</h2>
+      <pre>
+        <code class="language-javascript line-numbers">
+          let itemsInStock = 18;
+
+          if (itemsInStock > 0) {
+              console.log(itemsInStock);
+          } else {
+              console.log('Товар закончился');
+          }
+        </code>
+      </pre>
+    </section>
+
+    <section class="slide">
+      <h2>А что если я хочу больше условий?</h2>
+      <p>Все просто - вы можете использовать не только <code>if-else</code>, но и <code>else if</code> (важно: эта конструкция работает только в связке с <code>if</code> и имеет смысл, если нужно учесть несколько разных вариантов с конкретными условиями)</p>
+      <pre style="font-size: 20px;">
+        <code class="language-javascript line-numbers">
+          let age = 18;
+
+          if (age >= 18) {
+              console.log('Доступ разрешен');
+          } else if (age > 21) {
+              console.log('Вам даже в штатах можно все!');
+          } else if (age > 60) {
+              console.log('Пенсия... хотя может быть и нет :)');
+          } else {
+              console.log('Маловат еще');
+          }
+        </code>
+      </pre>
+    </section>
+
+    <section class="slide">
+      <h2>А если только одно?</h2>
+      <p>Так тоже можно :) Конструкция <code>if</code> может легко существовать без <code>else</code> (и довольно часто это, кстати, делает)</p>
+      <pre>
+        <code class="language-javascript line-numbers">
+          let username = "Yoda";
+
+          if (username == "Yoda") {
+              console.log('Приветствую вас, учитель');
+          }
+
+          // в противном случае просто ничего не делаем
+        </code>
+      </pre>
+    </section>
+
+    <section class="slide">
+      <h2><code>if</code> это кирпичик, из них можно складывать башни</h2>
+      <p>Один <code>if</code> может идти за другим. Они никак друг с другом не связаны.</p>
+      <p>Задача: если у Буратино есть больше 5 монет, то он покупает билет в театр. Если у него остаются деньги, то он покупает бутерброд за 1 монету</p>
+      <pre class="line-numbers" style="font-size: 16px;">
+        <code class="lang-js">
+          let balance = 7;
+
+          if (balance >= 5) {
+              balance = balance - 5; // баланс после покупки
+              console.log('Куплен билет');
+          } else {
+              console.log('Без театра');
+          }
+            
+          if (balance > 0) {
+            balance = balance - 1;
+            console.log('Куплен бутерброд');
+          }
+            
+          console.log("Осталось монет " +  balance);
+        </code>
+      </pre>
+    </section>
+
+    <section class="slide">
+      <h2>Каков результат логических операций?</h2>
+      <p>В качестве сравнения мы используем, например, <code>age balance >= 5</code>. А каков собственно результат этого сравнения?</p>
+    </section>
+
+    <section class="slide chapter" id="logic-type">
+      <h2>Логический тип данных и с чем его едят</h2>
+    </section>
+
+    <section class="slide">
+      <h2>Булев/булевый (он же логический) тип «boolean»</h2>
+      <p>У него всего два значения: <code>true</code> (истина) и <code>false</code> (ложь).</p>
+      <p>Как правило, такой тип используется для хранения значения типа да/нет, например:</p>
+      <pre>
+        <code class="language-javascript line-numbers">
+          18 > 0; // true
+          18 < 0; // false
+        </code>
+      </pre>
+      <pre>
+        <code class="language-javascript line-numbers">
+          let checked = true; // галочка поставлена
+          checked = false;    // галочка снята
+        </code>
+      </pre>
+    </section>
+
+    <section class="slide">
+      <h2>Операторы сравнения</h2>
+      <p>Тут все просто. Большинство операторов сравнения знакомы нам еще из школьной программы:</p>
+      <ul>
+        <li>
+          Больше/меньше: <code>a > b</code>, <code>a < b</code>.
+        </li>
+        <li>
+          Больше/меньше или равно: <code>a >= b</code>, <code>a <= b.</code>
+        </li>
+        <li>
+          Равно <code>a == b</code>. Для сравнения используется два символа равенства ‘=’. Один символ a = b означал бы присваивание.
+        </li>
+        <li>
+          «Не равно». В математике он пишется как <code>≠</code>, в JavaScript – знак равенства с восклицательным знаком перед ним <code>!=</code>.
+        </li>
+      </ul>
+    </section>
+    
+    <section class="slide chapter" id="algebra">
+      <h2>Простые и сложные условия. Булева алгебра</h2>
+    </section>
+
+    <section class="slide">
+      <h2>Простые и сложные условия</h2>
+      <p>То, как работают простые условия мы с вами разобрали. А вот сложные условия включают в себя еще и логические операторы.</p>
+      <p>Например, если человеку больше 18 лет и у него есть кот, то он совершеннолетний любитель котов. В коде это будет выглядеть примерно так:</p>
+      <pre>
+        <code class="language-javascript line-numbers">
+          let age = 20;
+          let hasCat = true; 
+
+          if (age > 18 && hasCat === true) {
+              console.log('Мяу');
+          }
+        </code>
+      </pre>
+    </section>
+
+    <section class="slide">
+      <h2>А какие еще бывают логические операторы?</h2>
+      <p>Нам с вами достаточно знать о трех:</p>
+      <ul>
+        <li>И, он же AND, он же &&</li>
+        <li>ИЛИ, он же OR, он же ||</li>
+        <li>НЕ, он же NOT, он же !</li>
+      </ul>
+      <p>То, как работают эти операторы в связке - легко понять по т.н. таблицам истинности. Давайте посмотрим как это выглядит.</p>
+    </section>
+
+    <section class="slide">
+      <h2>Логический оператор И (он же AND, он же &&)</h2>
+
+      <table class="square">
+        <tr>
+          <td></td>
+          <td><b>F</b></td>
+          <td><b>T</b></td>
+        </tr>
+        <tr>
+          <td><b>F</b></td>
+          <td>F</td>
+          <td>F</td>
+        </tr>
+        <tr>
+          <td><b>T</b></td>
+          <td>F</td>
+          <td>T</td>
+        </tr>
+      </table>
+
+      <pre>
+        <code class="language-javascript line-numbers">
+          let hour = 20;
+          let minute = 45;
+
+          if (hour === 20 && minute === 45) {
+            alert('Спокойной ночи малыши');
+          }
+        </code>
+      </pre>
+    </section>
+
+    <section class="slide">
+      <h2>Логический оператор ИЛИ (он же OR, он же ||)</h2>
+      
+      <table class="square">
+        <tr>
+          <td></td>
+          <td><b>F</b></td>
+          <td><b>T</b></td>
+        </tr>
+        <tr>
+          <td><b>F</b></td>
+          <td>F</td>
+          <td>T</td>
+        </tr>
+        <tr>
+          <td><b>T</b></td>
+          <td>T</td>
+          <td>T</td>
+        </tr>
+      </table>
+
+      <pre>
+        <code class="language-javascript line-numbers">
+          let hour = 9;
+
+          if (hour < 8 || hour > 21) {
+            alert('Аптека до 8 или после 21 закрыта');
+          }
+        </code>
+      </pre>
+    </section>
+
+    <section class="slide">
+      <h2>Логический оператор НЕ (он же NOT, он же !)</h2>
+      
+      <table class="square">
+        <tr>
+          <td><b>a</b></td>
+          <td><b>F</b></td>
+          <td><b>T</b></td>
+        </tr>
+        <tr>
+          <td><b>¬a</b></td>
+          <td>T</td>
+          <td>F</td>
+        </tr>
+      </table>
+
+      <pre>
+        <code class="language-javascript line-numbers">
+          let iKnowJS = false;
+
+          if (!iKnowJS) {
+            alert('Жизнь скучна и неинтересна!');
+          }
+        </code>
+      </pre>
+    </section>
+
+    <section class="slide">
+      <h2>Хочу более реалистичный пример!</h2>
+      
+      <p>Давайте попробуем вместе!</p>
+      <p>Скажем, вы собрались на вечеринку. Но вечеринка тематическая и только для своих. <i>Вас пустят только если вы в костюме совы или кота и если охранник на входе вас знает.</i></p>
+
+      <ul>
+        <li>название костюма мы храним в переменной <code>costume</code></li>
+        <li>знает человека охранник или нет, храним в перменной <code>knownPerson</code></li>
+      </ul>
+
+      <p>Сможете превратить это условие в код? Присылайте ваши варианты прямо в чат.</p>
+    </section>
+
+    <section class="slide">
+      <h2>Вот как бы мы могли это записать</h2>
+      
+      <pre style="font-size: 20px;">
+        <code class="language-javascript line-numbers">
+          let costume = 'Cat';
+          let knownPerson = true;
+          
+          if ((costume === 'Cat' || costume === 'Owl') && knownPerson) {
+            alert('Yay!');
+          }
+        </code>
+      </pre>      
+    </section>
+    
+    <section class="slide chapter" id="conversion">
+      <h2>Логическое преобразование</h2>
+    </section>
+
+    <section class="slide">
+      <h2>Логическое преобразование</h2>
+      
+      <p>В JS мы можем получить булевый тип не только при операциях сравнения, но и в логическом контексте, таком как <code>if</code>(value).</p>
+      <p>Все значения, которые интуитивно «пусты», становятся <code>false</code>. Их несколько:</p>
+      <ul>
+        <li><code>0</code></li>
+        <li>Пустая строка</li>
+        <li><code>null</code></li>
+        <li><code>undefined</code></li>
+        <li><code>NaN</code></li>
+      </ul>
+      <p>Остальное, в том числе и любые объекты – true.</p>
+    </section>
+
+    <section class="slide">
+      <h2>Пример</h2>
+      <p>В данном примере мы выведем в консоль имя <code>Bob</code>, так как в логическом контексте другие типы данных неявным образом преобразуются в булево значение.</p>
+      
+      <pre>
+        <code class="language-javascript line-numbers">
+          let name = 'Bob';
+          if (name) {
+              console.log(name);
+          }
+        </code>
+      </pre>      
+    </section>
+
+    <section class="slide">
+      <h2>Полная таблица преобразований</h2>
+      <table class="simple-table">
+        <thead>
+          <td>
+            <b>Значение</b>
+          </td>
+          <td>
+            <b>Преобразуется в...</b>
+          </td>
+        </thead>
+
+        <tr>
+          <td>undefined, null</td>
+          <td>false</td>
+        </tr>
+
+        <tr>
+          <td>Числа</td>
+          <td>Все true, кроме 0, NaN – false.</td>
+        </tr>
+
+        <tr>
+          <td>Строки</td>
+          <td>Все true, кроме пустой строки “” – false</td>
+        </tr>
+
+        <tr>
+          <td>Объекты</td>
+          <td>Всегда true</td>
+        </tr>
+      </table>
+    </section>
+
+    <section class="slide">
+      <h2>Давайте еще немного попрактикуемся!</h2>
+      <p>Как правило, у нас у всех есть много друзей, знакомых и просто людей, которые нас окружают. В зависимости от того, знаете вы имя человека и как долго вы знакомы - выведете на экран сообщения, исходя из таких условий:</p>
+      
+      <pre style="font-size: 17px;">
+        <code class="language-markup">
+          - если вы знакомы, но не помните имя человека, то выведите в консоль "Знакомый"
+          - если имя вам известно, но вы знакомы меньше года, то "Приятели"
+          - если же вы знакомы более пяти лет, то "Друзья"
+          - во всех остальных случаях пусть будет "Не определились" :)
+        </code>
+      </pre>      
+    </section>
+
+    <section class="slide">
+      <h2>Итак, посмотрим, что получилось</h2>
+      <pre >
+        <code class="language-javascript line-numbers">
+          let name, yearsOfRelationship;
+          name = 'Bob';
+          yearsOfRelationship = 10;
+          
+          if (name === "") {
+              console.log("Знакомый");
+          } else if(name && yearsOfRelationship < 1) {
+              console.log("Приятели");
+          } else if (name && yearsOfRelationship > 5) {
+              console.log("Друзья");
+          } else {
+              console.log("Не определились");
+          }
+        </code>
+      </pre>      
+    </section>
+
+    
+    <section class="slide">
+      <h2>Чему мы научились?</h2>
+      <ol>
+        <li>Ветвления - основа основ программирования</li>
+        <li>Булева алгебра, логические операторы, простые и сложные условия - как предусмотреть все нюансы</li>
+        <li>Как все это использовать в JS</li>
+      </ol>
+      <h2>Радуемся!</h2>
+    </section>
+    
+    <section class="slide">
+      <h2>Домашнее задание</h2>
+      <p>Давайте посмотрим ваше <a href="https://github.com/netology-code/pb-homeworks/tree/master/1.2_if_and_boolean">домашнее задание</a>.</p>
+      <ul>
+        <li>Вопросы по домашней работе задаем в группе Facebook!</li>
+        <li>Задачи можно сдавать по частям.</li>
+        <li>Зачет по домашней работе проставляется после того, как приняты все <b>3 задачи</b>.</li>
+      </ul>
+    </section>
+    
+    <section class="slide">
+      <h2>Что почитать</h2>
+      <ul style="font-size: 18px;">
+        <li>
+          <a href="https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Operators/Логические_операторы" target="_blank">
+            https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Operators/Логические_операторы
+          </a>
+        </li>
+        <li>
+          <a href="https://learn.javascript.ru/logical-ops" target="_blank">
+            https://learn.javascript.ru/logical-ops
+          </a>
+        </li>
+        <li>
+          <a href="https://learn.javascript.ru/comparison" target="_blank">
+            https://learn.javascript.ru/comparison
+          </a>
+        </li>
+      </ul>
+    </section>
+
+    <section class="slide">
+      <h2>А посмотреть?</h2>
+      <ul>
+        <li>
+          <a href="https://www.youtube.com/watch?v=2cGleL5FMZM" target="_blank">
+            https://www.youtube.com/watch?v=2cGleL5FMZM
+          </a>
+          - хороший обзор того, на что мы сегодня посмотрели
+        </li>
+        <li>
+          <a href="https://www.youtube.com/watch?v=B4ZCFdrBmbE" target="_blank">
+            https://www.youtube.com/watch?v=B4ZCFdrBmbE
+          </a>
+          - еще один обзор с конкретными примерами, но уже на английском
+        </li>
+        <li>
+          <a href="https://www.youtube.com/watch?v=Gy87ZS5sb1w" target="_blank">
+            https://www.youtube.com/watch?v=Gy87ZS5sb1w
+          </a>
+          - параллельно даются несколько полезных советов для работы в консоле веб-разработчика
+        </li>
+      </ul>
+    </section>
+    
+    <section class="slide last">
+      <p class="thanx">Спасибо за внимание! Время задавать вопросы</p>
+      <address>Николай Лопин</address>
+      <ul class="contacts">
+        <li><a href="mailto:lopinopulos@gmail.com"><i class="fa fa-envelope-o" aria-hidden="true"></i>lopinopulos@gmail.com</a></li>
+        <li><a href="https://www.facebook.com/nikolay.lopin"><i class="fa fa-facebook" aria-hidden="true"></i>nikolay.lopin</a></li>
+        <li><i class="fa fa-telegram" aria-hidden="true"></i>@nlopin</li>
+      </ul>
+    </section>
+
+    <div class="progress"></div>
+    <script src="shower/shower.min.js"></script>
+    <script src="js/prism.js?v=2"></script>
+  </body>
+</html>

@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns="http://www.w3.org/1999/html">
+  <head>
+    <title>Массивы и базовые методы работы с ними</title>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="i/favicon.ico" type="image/x-icon">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="node_modules/shower-ribbon/styles/screen-4x3.css">
+    <link rel="stylesheet" href="css/prism.css">
+    <link rel="stylesheet" href="css/prism-fix.css">
+    <link rel="stylesheet" href="css/netology.css">
+    <link rel="stylesheet" href="css/fake-browser.css">
+    <link rel="stylesheet" href="css/features.css">
+
+    <script src="https://use.fontawesome.com/70378a66b8.js"></script>
+  </head>
+  <body class="shower">
+    <header class="caption">
+      <h1>Массивы и базовые методы работы с ними</h1>
+      <p>Афанасов Илья, PwC</p>
+    </header>
+
+    <section class="slide" id="cover">
+      <h2>Массивы и базовые методы работы с ними</h2>
+      <p>
+        <img src="i/afanasov-ilya.jpg" alt="" class="avatar">
+        Илья Афанасов <span class="position">PwC</span>
+      </p>
+    </section>
+
+    <section class="slide author" id="author">
+      <img src="i/afanasov-ilya.jpg" alt="">
+      <h1>Илья Афанасов</h1>
+      <p class="position">Senior Web-Developer в PwC</p>
+      <ul class="contacts">
+          <li><a href="https://www.facebook.com/ivafanasov"><i class="fa fa-facebook" aria-hidden="true"></i>fb.me/ivafanasov</a></li>
+          <li><a href="skype:am_monkey"><i class="fa fa-skype" aria-hidden="true"></i>am_monkey</a></li>
+      </ul>
+    </section>
+
+    <section class="slide" id="roadmap">
+      <h2>План занятия</h2>
+      <ol>
+        <li><a href="#repeating">Повторение - мать учения</a></li>
+        <li><a href="#what">Что же такое массивы?</a></li>
+        <li><a href="#basik">Основы основ</a></li>
+        <li><a href="#methods">Методы работы с массивами</a></li>
+        <li><a href="#links">Где попрактиковаться?</a></li>
+      </ol>
+    </section>
+
+    <section class="slide chapter" id="repeating">
+      <h2>Вспомним прошлый материал</h2>
+    </section>
+
+    <section class="slide">
+      <h2>Вспомним прошлый материал</h2>
+      <p>Что мы получим в результате исполнения такого кода?</p>
+      <pre style="font-size: 18px;">
+        <code class="language-javascript line-numbers">
+          let duration = 1;
+          let myString = '';
+          
+          myString += 'внимание!'.toUpperCase();
+          myString += ' Проверяем усвоенный ';
+          myString += duration;
+          myString += ' неделю назад материал! Вах!'.toLowerCase().substr(0, 22);
+          
+          console.log(myString);
+        </code>
+      </pre>
+    </section>
+
+    <section class="slide">
+      <h2>Что мы увидим в результате?</h2>
+      <p>Мы увидим в консоли сообщение:</p>
+      <p><code>'ВНИМАНИЕ! проверяем усвоенный 1 неделю назад материал!'</code></p>
+      <p>Мы инициализировали переменную <code>myString</code> пустой строкой, а далее добавляли по-разному отформатированные строки в нее. Затем с помощью <code>substr</code> вырезали часть строки и вывели результат в консоль.</p>
+    </section>
+
+    <section class="slide chapter" id="what">
+      <h2>Что же такое массивы?</h2>
+    </section>
+
+    <section class="slide">
+      <h2>Зачем нам массивы?</h2>
+      <p>Как правило, в приложениях мы имеем много (а иногда даже очень много) данных.</p>
+      <p>Предположим, что у нас в магазине есть 100 разных книг. Один из вариантов - хранить имя каждой в своей переменной.</p>
+    </section>
+
+    <section class="slide">
+      <h2>Зачем нам массивы?</h2>
+      <p>Но гораздо проще объединить их всех в какую-то общую переменную. В этом нам и помогут массивы:</p>
+      <img src="./pic/arrays-why.png" style="width: 95%;">
+    </section>
+    
+    <section class="slide chapter" id="basik">
+      <h2>Основы основ</h2>
+    </section>
+
+    <section class="slide">
+      <h2>Нумерация элементов</h2>
+      <p>У каждой «единицы» данных в массиве есть свой порядковый номер. Он называется индексом. <i>Нумерация индексов начинается с нуля.</i></p>
+      <pre style="font-size: 19px;">
+        <code class="language-javascript line-numbers">
+          // это может по началу быть непривычным, но в данном примере 
+          // "первый" будет иметь индекс 0, "второй" - индекс 1, а "третий" - 2
+
+          let arr = ["первый", "второй", "третий"];
+        </code>
+      </pre>
+    </section>
+
+    <section class="slide">
+      <h2>Взболтать, а не смешивать</h2>
+      <p>Во многих языках программирования данные в массивах должны быть одного типа и размер часто задается заранее. В JS все намного веселее - тип данных может быть любой и в любой момент мы можем добавить сколько угодно данных в существующий массив.</p>
+      <pre>
+        <code class="language-javascript line-numbers">
+          let array = [1, 2, 3, 'четыре', true, false];
+          array[6] = 'еще один элемент';
+
+          console.log(array);
+        </code>
+      </pre>
+    </section>
+
+    <section class="slide">
+      <h2>В начале <s>было слово</s> был массив</h2>
+      <p>Что нам стоит знать для начала:</p>
+      <ul>
+        <li>массив объявляется с помощью специального литерала - квадратных скобок (<code>[]</code>);</li>
+        <li>при объявлении вы можете оставить его пустым и добавить данные позже, а можете и сразу инициализировать какими-то значениями (<code>[1, 2, 4]</code>, <code>['Маша', 'Паша']</code>);</li>
+      </ul>
+      <pre>
+        <code class="language-javascript line-numbers">
+          let arr = [1, 2, 3];
+          let arr2 = [];
+          arr2[0] = 'Маша'; // про этот трюк мы еще поговорим
+
+          console.log(arr, arr2);
+        </code>
+      </pre>
+    </section>
+
+    <section class="slide">
+      <h2>Чтение</h2>
+      <p>Чтобы прочитать элемент из массива, нужно указать его индекс в квадратных скобках после имени массива:</p>
+      <pre style="font-size: 18px;">
+        <code class="language-javascript line-numbers">
+          let arr = ['первый', 'второй', 'третий'];
+
+          console.log(arr[0], arr[1], arr[2]); // 'первый', 'второй', 'третий'
+        </code>
+      </pre>
+      <p>Это как раз часть того самого «трюка», о котором мы только что говорили - <code>arr2[0]</code></p>
+    </section>
+
+    <section class="slide">
+      <h2>…и запись</h2>
+      <p>А вот и вторая часть «трюка». Вы можете не только читать, но и изменять любой элемент массива по его индексу:</p>
+      <pre>
+        <code class="language-javascript line-numbers">
+          let arr = [1, 2, 3];
+          arr[0] = 33;
+
+          console.log(arr); // [33, 2, 3]
+          console.log(arr[1]); // 2
+          // а вот и новый трюк - но можно догадаться, что
+          // таким образом мы получаем длину массива
+          console.log(arr.length); // 3
+        </code>
+      </pre>
+    </section>
+
+    <section class="slide">
+      <h2>Можно ли так?</h2>
+      <pre class="line-numbers" style="font-size: 24px;">
+        <code class="lang-js">
+          let array = ["привет", "Здравствуйте", "Добрый вечер"];
+          let arrayTwo = [1, 2, 3];
+            
+          array[2] = arrayTwo;
+            
+          console.log(array); // ???
+        </code>
+      </pre>
+    </section>
+
+    <section class="slide">
+      <h2>Конечно можно!</h2>
+      <p>Мы получили массив, одним из элементов которого является другой массив.</p>
+      <pre class="line-numbers" style="font-size: 22px;">
+        <code class="lang-js">
+          let array = ["привет", "Здравствуйте", "Добрый вечер"];
+          let arrayTwo = [1, 2, 3];
+            
+          array[2] = arrayTwo;
+            
+          console.log(array); // ["привет", "Здравствуйте", [1, 2, 3]]
+        </code>
+      </pre>
+    </section>
+
+    <section class="slide">
+      <h2>Доступ к элементам вложенного массива</h2>
+      <p>Для доступа к элементу вложенного массива нам потребуется два индекса: первый — чтобы добраться до вложенного массива и второй, чтобы получить из него элемент:</p>
+      <pre>
+        <code class="lang-js">
+          console.log(array[2][0]); // 1
+        </code>
+      </pre>
+    </section>
+    
+    <section class="slide chapter" id="methods">
+      <h2>Методы работы с массивами</h2>
+    </section>
+
+    <section class="slide">
+      <h2>Про свойства и методы</h2>
+      <p>Все значения в JavaScript, за исключением <code>null</code> и <code>undefined</code>, содержат набор вспомогательных функций и значений, доступных «через точку».</p>
+      <p>Такие функции называют «методами», а значения – «свойствами».</p>
+      <p>Свойства говорят о текущем состоянии массива, а методы — выполняют наши команды.</p>
+      <p>Именно поэтому мы смогли так легко узнать длину нашего массива (<code>arr.length</code>). Если помните — у строк тоже есть такой метод-помощник.</p>
+    </section>
+
+    <section class="slide">
+      <h2>Еще один помощник</h2>
+      <p>Иногда мы знаем элемент, но не знаем его индекс. Найти индекс можно с помощью метода <code>indexOf</code>. Важный нюанс - если одинаковых элементов в массиве несколько, то по умолчанию найдется только первый.</p>
+      <pre style="font-size: 23px;">
+        <code class="language-javascript line-numbers">
+          let arr = [1, 2, 3];
+
+          // получим 1 - не забываем, что нумерация начинается с нуля
+          console.log(arr.indexOf(2));
+        </code>
+      </pre>
+    </section>
+
+    <section class="slide">
+      <h2>Изменяем, добавляем, убираем</h2>
+      <p>Рассмотрим основные методы, которые помогают нам манипулировать массивами, не обращаясь непосредственно к индексам.</p>
+      <p>Работать с методами удобно, когда нам нужно часто и много изменять изначальный массив.</p>
+    </section>
+
+    <section class="slide">
+      <h2>Изменяем, добавляем, убираем</h2>
+      <pre style="font-size: 24px;">
+        <code class="language-javascript line-numbers">
+          let books = ['Книга 1', 'Книга 2', 'Книга 3'];
+
+          /** допустим нам нужно добавить 100 книг в наш массив */
+
+          // с помощью конструкции "books[books.length] = any;"
+          // мы добавляем элемент в конец массива
+          books[books.length] = 'Книга 1';
+          books[books.length] = 'Книга 2';
+          books[books.length] = 'Книга 3';
+          // ...
+          books[99] = 'Книга 100';
+        </code>
+      </pre>
+      <p>Задачу мы решили, но слишком уж сложно, не находите?</p>
+    </section>
+
+    <section class="slide">
+      <h2>Методы - наши верные солдаты</h2>
+      <p>Представьте, что массив - это генерал вашей армии, а обилие всех его методов - это подвластное ему войско. При этом каждый метод - это солдат со своими уникальными способностями.</p>
+      <p>Так вот. Каждый метод-солдат делает что-то с данными и докладывает результат своей работы (если говорить скучным техническим языком - возвращает какое-то значение). Его можно сохранить в отдельную переменную и переиспользовать далее в программе, а можно проигнорировать.</p>
+      <p>Как работают методы/функции мы еще разберем более подробно в следующих лекциях, но сейчас важно понять, что возвращаемый результат и модификации массива - это две разные вещи, происходящие «под капотом».</p>
+    </section>
+
+    <section class="slide">
+      <h2>push</h2>
+      <p>Добавляет элемент(ы) в конец массива, возвращает текущую длину массива:</p>
+      <pre>
+        <code class="language-javascript line-numbers">
+          let arr = [];
+
+          arr.push(1, 2, 3); // 3
+          arr.push(11); // 4
+          console.log(arr); // [1, 2, 3, 11]
+          console.log(arr.length); // 4
+        </code>
+      </pre>
+    </section>
+
+    <section class="slide">
+      <h2>pop</h2>
+      <p>Удаляет элемент с конца массива, возвращает этот самый элемент:</p>
+      <pre>
+        <code class="language-javascript line-numbers">
+          let arr = [1, 2, 3, 11];
+
+          arr.pop(); // 11
+          console.log(arr); // [1, 2, 3]
+          console.log(arr.length); // 3
+        </code>
+      </pre>
+    </section>
+
+    <section class="slide">
+      <h2>И снова немного визуализации</h2>
+      <figure style="width: 450px;">
+        <img src="pic/push-pop.png">
+      </figure>
+    </section>
+
+    <section class="slide">
+      <h2>shift</h2>
+      <p>Удаляет элемент из начала массива, возвращает этот самый элемент:</p>
+      <pre>
+        <code class="language-javascript line-numbers">
+          let arr = [1, 2, 3];
+
+          arr.shift(); // 1
+          console.log(arr); // [2, 3]
+          console.log(arr.length); // 2
+        </code>
+      </pre>
+    </section>
+
+    <section class="slide">
+      <h2>unshift</h2>
+      <p>Добавляет элемент(ы) в начало массива, возвращает текущую длину массива:</p>
+      <pre>
+        <code class="language-javascript line-numbers">
+          let arr = [2, 3];
+
+          arr.unshift(9, 16, 25); // 5
+          arr.unshift(36); // 6
+          console.log(arr); // [36, 9, 16, 25, 2, 3]
+          console.log(arr.length); // 6
+        </code>
+      </pre>
+    </section>
+
+    <section class="slide">
+      <h2>Строки, или Туда и обратно</h2>
+      <p style="font-size: 20px;">Часто возникает необходимость превратить строку в массив или наоборот - склеить массив в строку. Для этого у нас есть помощники, которыми легко пользоваться:</p>
+      <ul style="font-size: 20px;">
+        <li>
+          <code>join</code>
+          <br>
+          объединяет элементы массива в строку с помощью переданного в качестве параметра разделителя. По умолчанию этим разделителем является запятая;
+        </li>
+        <li>
+          <code>split</code>
+          <br>
+          тут все то же самое - только в обратную сторону. Берем строку, говорим, что мы хотим разделить ее, скажем по пробелам - получаем массив слов.
+        </li>
+      </ul>
+      <pre style="font-size: 19px;">
+        <code class="language-javascript line-numbers">
+          let arr = ['Мы', 'хотим', 'быть', 'одним', 'предложением'];
+
+          arr.join(' '); // "Мы хотим быть одним предложением"
+          'банан,клубника,молоко'.split(','); //&nbsp;["банан", "клубника", "молоко"]
+        </code>
+      </pre>
+    </section>
+
+    <section class="slide">
+      <h2>Обрезаем, объединяем, копируем</h2>
+      <p>Часто нам бывает нужно сделать копию данных или же получить какую-то часть исходного массива, не вызывая <code>pop/shift</code> много-много раз. В этом нам помогут следующие методы:</p>
+      <ul>
+        <li>
+          <code>slice</code>
+        </li>
+        <li>
+          <code>splice</code>
+        </li>
+        <li>
+          <code>concat</code>
+        </li>
+      </ul>
+      <p>Давайте посмотрим на примерах как это работает.</p>
+    </section>
+
+    <section class="slide">
+      <h2>slice</h2>
+      <p>Метод <code>slice(begin, end)</code> копирует участок массива от <code>begin</code> до <code>end</code>, не включая <code>end</code>. Исходный массив при этом не меняется. Если не указать <code>end</code>, то копируем до конца массива.</p>
+      <pre style="font-size: 19px;">
+        <code class="language-javascript line-numbers">
+          let arr = ['Почему', 'не', 'надо', 'учить', 'JavaScript'];
+          let arr2 = arr.slice(0, 1); // только 1-ый элемент
+          let arr3 = arr.slice(2); // все элементы, начиная со второго
+
+          console.log(arr2, arr3); // ['Почему'],&nbsp;['надо', 'учить', 'JavaScript']
+        </code>
+      </pre>
+    </section>
+
+    <section class="slide">
+      <h2>splice</h2>
+      <p>Метод <code>splice</code> – это универсальный раскладной нож для работы с массивами. Умеет все: удалять элементы, вставлять элементы, заменять элементы – по очереди и одновременно.</p>
+      <p>Пока достаточно освоиться с удалением.</p>
+      <pre style="font-size: 23px;">
+        <code class="language-javascript line-numbers">
+          let arr = ['Я', 'изучил', 'изучаю', 'JavaScript'];
+
+          arr.splice(1, 1); // начиная с позиции 1, удалить 1 элемент
+
+          alert( arr ); //  осталось ['Я', 'изучаю', 'JavaScript']
+        </code>
+      </pre>
+    </section>
+
+    <section class="slide">
+      <h2>concat</h2>
+      <p>Метод <code>arr.concat(value1, value2, ... valueN)</code> создаёт новый массив, в который копируются элементы из arr, а также <code>value1, value2, ... valueN</code>.</p>
+      <pre style="font-size: 23px;">
+        <code class="language-javascript line-numbers">
+          let arr = ['Почему'];
+          let merged = arr.concat(['надо', 'учить', 'JavaScript']);
+
+          // помните метод join из лекции про строки?
+          // в результате получим 'Почему надо учить JavaScript'
+          console.log(merged.join(' '));
+        </code>
+      </pre>
+    </section>
+
+    
+    <section class="slide">
+      <h2>Чему мы научились?</h2>
+      <ol>
+        <li>Узнали что же такое массивы и их особенности в JS.</li>
+        <li>Узнали как оперировать сразу целым набором данных или тем или другим элементом в массиве.</li>
+        <li>Стали на шаг ближе к JS ниндзя.</li>
+      </ol>
+      <h2>Радуемся!</h2>
+    </section>
+    
+    <section class="slide">
+      <h2>Домашнее задание</h2>
+      <p>Давайте посмотрим ваше <a href="https://github.com/netology-code/pb-homeworks/tree/master/2.1_array">домашнее задание</a>.</p>
+      <ul>
+        <li>Вопросы по домашней работе задаем в группе Facebook!</li>
+        <li>Задачи можно сдавать по частям.</li>
+        <li>Зачет по домашней работе проставляется после того, как приняты все <b>3 задачи</b>.</li>
+      </ul>
+    </section>
+    
+    <section class="slide" id="links">
+      <h2>Где и как можно поиграться с массивами</h2>
+      <ul>
+        <li>
+          <a href="http://codewars.com/">Сodewars</a>, programming challenges
+        </li>
+        <li>
+          <a href="https://learn.javascript.ru/array">Массивы с числовыми индексами</a>, <code>learn.javascript.ru</code>
+        </li>
+        <li>
+          <a href="https://learn.javascript.ru/array-methods">Массивы: методы</a>, <code>learn.javascript.ru</code>
+        </li>
+        <li>
+          <a href="https://learn.javascript.ru/array-iteration">Массивы: перебирающие методы</a>, <code>learn.javascript.ru</code>
+        </li>
+      </ul>
+    </section>
+
+    <section class="slide">
+      <h2>Что почитать</h2>
+      <ul style="font-size: 18px;">
+        <li>
+          <a href="https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Array">https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Array</a> <br>- по традиции - документация на MDN.
+        </li>
+        <li>
+          <a href="https://learn.javascript.ru/array">https://learn.javascript.ru/array</a> - <code>learn.javascript.ru</code>, опять же по традиции.
+        </li>
+      </ul>
+    </section>
+
+    <section class="slide">
+      <h2>А посмотреть?</h2>
+      <ul>
+        <li>
+          <a href="https://www.youtube.com/watch?v=3OjuRfR8RNg">https://www.youtube.com/watch?v=3OjuRfR8RNg</a> - отличный обзор того, что мы сегодня обсудили (и даже больше) от Sorax.
+        </li>
+        <li>
+          <a href="https://www.youtube.com/watch?v=orAS-MBh5f4">https://www.youtube.com/watch?v=orAS-MBh5f4</a> - хороший обзор на английском.
+        </li>
+      </ul>
+    </section>
+
+    <section class="slide last">
+      <p class="thanx">Спасибо за внимание! Время задавать вопросы</p>
+      <address>Илья Афанасов</address>
+      <ul class="contacts">
+        <li><a href="https://www.facebook.com/ivafanasov"><i class="fa fa-facebook" aria-hidden="true"></i>fb.me/ivafanasov</a></li>
+        <li><a href="skype:am_monkey"><i class="fa fa-skype" aria-hidden="true"></i>am_monkey</a></li>
+      </ul>
+    </section>
+
+    <div class="progress"></div>
+    <script src="shower/shower.min.js"></script>
+    <script src="js/prism.js?v=2"></script>
+  </body>
+</html>
