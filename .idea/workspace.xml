@@ -1,7 +1,151 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6e2b0dc0-5294-4b94-b152-b0d6bdba3c24" name="Default Changelist" comment="" />
+    <list default="true" id="6e2b0dc0-5294-4b94-b152-b0d6bdba3c24" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/1-1-basic-vars-nums.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/1-2-logic-type.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/1-3-strings-algorythms-debugging.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/2-1-arrays-and-methods.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/2-2-loops.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/2-3-associated-array.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/3-1-functions-simple.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/3-2-function-arguments.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/css/fake-browser.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/css/features.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/css/netology.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/css/prism-fix.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/css/prism.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/i/afanasov-ilya.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/i/alenabat.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/i/basov.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/i/dfitiskin.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/i/dpisarev.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/i/ek.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/i/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/i/gilyazov.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/i/gonik-daniil.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/i/kamyshev.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/i/logo.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/i/mironov.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/i/netology-logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/i/nlopin.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/i/pmyagkov.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/i/rusakov.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/i/vtsvang.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/i/yazikov.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/js/prism.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/pic/404.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/pic/TLAESSN.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/pic/alert.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/pic/arrays-why.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/pic/binary-search.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/pic/bit.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/pic/block-schema.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/pic/brick.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/pic/browsers.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/pic/canvas.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/pic/client-server.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/pic/comet.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/pic/confirm.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/pic/console-result.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/pic/console1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/pic/console2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/pic/console3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/pic/cookies.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/pic/cors_result.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/pic/data-scructures.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/pic/debounce.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/pic/delegation.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/pic/devTools.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/pic/devil.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/pic/dom-tree.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/pic/dorogi.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/pic/error-result.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/pic/files.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/pic/fingers-looks-like-a-working-hard.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/pic/for-loop.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/pic/formula1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/pic/formula2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/pic/geometry.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/pic/global.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/pic/google-link.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/pic/guitar.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/pic/hover-menu.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/pic/html-doc.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/pic/js-result.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/pic/linegradient.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/pic/list.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/pic/localStorage.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/pic/longPolling.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/pic/net-error.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/pic/netology-prof.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/pic/netology-site.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/pic/paper.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/pic/person.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/pic/phone-book.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/pic/prompt.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/pic/push-pop.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/pic/radialgradient.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/pic/replit-consolelog.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/pic/replit-inside.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/pic/replit.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/pic/result.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/pic/server.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/pic/simple-algorythm.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/pic/techpattern.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/pic/textarea.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/pic/vscode.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/pic/websocket-diagram.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/pic/websocket.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/pic/xss.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/shower/shower.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/shower/themes/material/LICENSE.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/shower/themes/material/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/shower/themes/material/fonts/COPYRIGHT.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/shower/themes/material/fonts/LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/shower/themes/material/fonts/roboto-bold-italic.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/shower/themes/material/fonts/roboto-bold.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/shower/themes/material/fonts/roboto-italic.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/shower/themes/material/fonts/roboto-light.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/shower/themes/material/fonts/roboto-mono-regular.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/shower/themes/material/fonts/roboto-regular.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/shower/themes/material/images/grid.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/shower/themes/material/images/grid@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/shower/themes/material/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/shower/themes/material/pictures/canvas.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/shower/themes/material/pictures/exact.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/shower/themes/material/pictures/square.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/shower/themes/material/pictures/tall.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/shower/themes/material/pictures/wide.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/shower/themes/material/styles/screen-16x10.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/shower/themes/material/styles/screen-4x3.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/shower/themes/ribbon/LICENSE.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/shower/themes/ribbon/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/shower/themes/ribbon/fonts/LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/shower/themes/ribbon/fonts/pt-mono-regular.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/shower/themes/ribbon/fonts/pt-sans-bold-italic.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/shower/themes/ribbon/fonts/pt-sans-bold.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/shower/themes/ribbon/fonts/pt-sans-italic.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/shower/themes/ribbon/fonts/pt-sans-narrow-bold.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/shower/themes/ribbon/fonts/pt-sans-regular.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/shower/themes/ribbon/images/grid.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/shower/themes/ribbon/images/grid@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/shower/themes/ribbon/images/ribbon.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/shower/themes/ribbon/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/shower/themes/ribbon/pictures/canvas.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/shower/themes/ribbon/pictures/exact.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/shower/themes/ribbon/pictures/square.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/shower/themes/ribbon/pictures/tall.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/shower/themes/ribbon/pictures/wide.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/shower/themes/ribbon/styles/screen-16x10.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/shower/themes/ribbon/styles/screen-4x3.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepared/yarn.lock" beforeDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -13,11 +157,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="375">
-              <caret line="432" lean-forward="true" selection-start-line="432" selection-end-line="432" />
+              <caret line="432" selection-start-line="432" selection-end-line="432" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#section#5;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#section#6;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -34,6 +178,15 @@
                 <element signature="e#14335#14357#0" expanded="true" />
                 <element signature="e#15433#15461#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="88">
+              <caret line="4" column="9" lean-forward="true" selection-start-line="4" selection-start-column="9" selection-end-line="4" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -62,12 +215,16 @@
       <find>Не забивай на себя</find>
     </findStrings>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/css/netology.css" />
         <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -75,6 +232,7 @@
     <option name="width" value="1920" />
     <option name="height" value="1080" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
@@ -100,6 +258,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/i" />
     <property name="node.js.detected.package.eslint" value="true" />
@@ -111,6 +270,7 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -161,18 +321,17 @@
       <option name="presentableId" value="Default" />
       <updated>1554903126533</updated>
       <workItem from="1554903129029" duration="5300000" />
-      <workItem from="1555005081258" duration="6502000" />
+      <workItem from="1555005081258" duration="6837000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="11802000" />
+    <option name="totallyTimeSpent" value="12137000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1080" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.10215903" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.10215903" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -218,7 +377,7 @@
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
-          <caret line="432" lean-forward="true" selection-start-line="432" selection-end-line="432" />
+          <caret line="432" selection-start-line="432" selection-end-line="432" />
           <folding>
             <element signature="n#style#0;n#div#0;n#section#5;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#section#6;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -235,6 +394,13 @@
             <element signature="e#14335#14357#0" expanded="true" />
             <element signature="e#15433#15461#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="4" column="9" lean-forward="true" selection-start-line="4" selection-start-column="9" selection-end-line="4" selection-end-column="9" />
         </state>
       </provider>
     </entry>
