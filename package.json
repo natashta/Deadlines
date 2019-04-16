@@ -41,9 +41,6 @@
     "run-sequence": "^1.2.2"
   },
   "scripts": {
-    "prepare": "gulp prepare",
-    "archive": "gulp archive",
-    "publish": "gulp publish",
     "start": "browser-sync start --server --files '*.html' 'css/*.css' 'js/*.js'"
   }
 }
